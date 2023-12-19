@@ -1,0 +1,14 @@
+orbit_correction_gui.pro.user
+orbit_correction_gui.pro.user*
+*.o
+moc_*
+moc*
+Debug/
+Release/
+Profile/
+Makefile
+*.autosave
+ui_*
+.qmake.stash
+Qt-Client
+
