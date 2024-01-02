@@ -6,232 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>890</width>
-    <height>560</height>
+    <width>933</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Orbit Correction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="lblEnergy">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Energy Level</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="numIterations">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>70</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>4</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>1.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9999.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblNumIterations">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>70</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Num. Iterations</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblNumSingularValues">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>90</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Num. Singular Values</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="numSingularValues">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>90</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>2</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>1.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>65.000000000000000</double>
-    </property>
-    <property name="value">
-     <double>40.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblIncludeRf">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>190</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Include RF</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblApplyReg">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>210</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Apply Regularization</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMaxFreqChange">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>110</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Max. Freq. Change</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="maxFreqChange">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>110</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>5</number>
-    </property>
-    <property name="precision">
-     <number>2</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>99999.990000000005239</double>
-    </property>
-    <property name="value">
-     <double>1000.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMaxCurrChange">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>130</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Max. Current Change</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="maxCurrChange">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>130</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>1</number>
-    </property>
-    <property name="precision">
-     <number>4</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9.999900000000000</double>
-    </property>
-    <property name="value">
-     <double>0.100000000000000</double>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblFreqUnit">
-    <property name="geometry">
-     <rect>
-      <x>271</x>
-      <y>112</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Hz</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCurrentUnit">
-    <property name="geometry">
-     <rect>
-      <x>271</x>
-      <y>130</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>A</string>
-    </property>
-   </widget>
    <widget class="QELabel" name="currentIteration">
     <property name="geometry">
      <rect>
-      <x>648</x>
+      <x>640</x>
       <y>20</y>
       <width>40</width>
       <height>20</height>
@@ -241,7 +27,7 @@
    <widget class="QLabel" name="lblCurrentIterationHead">
     <property name="geometry">
      <rect>
-      <x>576</x>
+      <x>568</x>
       <y>20</y>
       <width>70</width>
       <height>20</height>
@@ -254,7 +40,7 @@
    <widget class="QLabel" name="lblCurrentIteration">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>682</x>
       <y>20</y>
       <width>90</width>
       <height>20</height>
@@ -267,185 +53,29 @@
    <widget class="QEPlot" name="pltdiVsCorrectors">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>462</x>
       <y>50</y>
       <width>450</width>
       <height>240</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chkBoxInfIterations">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>70</y>
-      <width>40</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string>Inf</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chkBoxIncludeRf">
-    <property name="geometry">
-     <rect>
-      <x>165</x>
-      <y>190</y>
-      <width>17</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chkBoxApplyReg">
-    <property name="geometry">
-     <rect>
-      <x>164</x>
-      <y>210</y>
-      <width>17</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
     </property>
    </widget>
    <widget class="QEPlot" name="pltdposVsBpms">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>462</x>
       <y>310</y>
       <width>450</width>
       <height>240</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnStartCorrection">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>250</y>
-      <width>120</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start Correction</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblEnergyUnit">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>50</y>
-      <width>30</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>MeV</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="energy">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>50</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="currentText">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnStopCorrection">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>250</y>
-      <width>120</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stop Correction</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMaxReadFail">
-    <property name="geometry">
-     <rect>
-      <x>19</x>
-      <y>150</y>
-      <width>140</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Max. Read Fail</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="maxReadFail">
-    <property name="geometry">
-     <rect>
-      <x>162</x>
-      <y>150</y>
-      <width>100</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>3</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>999.000000000000000</double>
-    </property>
-    <property name="value">
-     <double>5.000000000000000</double>
-    </property>
-   </widget>
    <widget class="QScrollArea" name="scrollAreaLogs">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>8</x>
       <y>310</y>
-      <width>386</width>
+      <width>431</width>
       <height>230</height>
      </rect>
     </property>
@@ -460,7 +90,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>384</width>
+       <width>429</width>
        <height>228</height>
       </rect>
      </property>
@@ -516,6 +146,445 @@ padding: 5px;</string>
       </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>151</x>
+      <y>50</y>
+      <width>110</width>
+      <height>122</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QComboBox" name="energy">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QNumericEdit" name="numIterations">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="leadingZeros">
+        <number>4</number>
+       </property>
+       <property name="precision">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>9999.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QNumericEdit" name="numSingularValues">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="leadingZeros">
+        <number>2</number>
+       </property>
+       <property name="precision">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>65.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>40.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QNumericEdit" name="maxFreqChange">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="leadingZeros">
+        <number>5</number>
+       </property>
+       <property name="precision">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>99999.990000000005239</double>
+       </property>
+       <property name="value">
+        <double>1000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QNumericEdit" name="maxCurrChange">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="leadingZeros">
+        <number>1</number>
+       </property>
+       <property name="precision">
+        <number>4</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>9.999900000000000</double>
+       </property>
+       <property name="value">
+        <double>0.100000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QNumericEdit" name="maxReadFail">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="leadingZeros">
+        <number>3</number>
+       </property>
+       <property name="precision">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>999.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>5.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>50</y>
+      <width>141</width>
+      <height>122</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblEnergy">
+       <property name="text">
+        <string>Energy Level</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblNumIterations">
+       <property name="text">
+        <string>Num. Iterations</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblNumSingularValues">
+       <property name="text">
+        <string>Num. Singular Values</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblMaxFreqChange">
+       <property name="text">
+        <string>Max. Freq. Change</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblMaxCurrChange">
+       <property name="text">
+        <string>Max. Current Change</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblMaxReadFail">
+       <property name="text">
+        <string>Max. Read Fail</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>50</y>
+      <width>45</width>
+      <height>122</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblEnergyUnit">
+       <property name="text">
+        <string>MeV</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkBoxInfIterations">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Inf</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblFreqUnit">
+       <property name="text">
+        <string>Hz</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblCurrentUnit">
+       <property name="text">
+        <string>A</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>190</y>
+      <width>290</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="lblIncludeRf">
+       <property name="text">
+        <string>Include RF</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkBoxIncludeRf">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>210</y>
+      <width>290</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="lblApplyReg">
+       <property name="text">
+        <string>Apply Regularization</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkBoxApplyReg">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>260</y>
+      <width>293</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnStartCorrection">
+       <property name="text">
+        <string>Start Correction</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStopCorrection">
+       <property name="text">
+        <string>Stop Correction</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="footer">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>560</y>
+      <width>902</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+	background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="btnExpert">
+       <property name="text">
+        <string>Expert</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>307</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

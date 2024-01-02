@@ -22,12 +22,22 @@ MainWindow::MainWindow(QWidget *parent)
     this->max_frequency_change = 1000.0;
     this->max_current_change = 0.1;
 
+    this->rf_only = false;
+    /*Averaging*/
+    this->avg_algo = "ema";
+    this->window_size = 5;
+    this->smoothing_factor = 0.33;
+
     this->correction_process = new QProcess();
     this->data_path = "/home/control/Documents/sofb/orbit_correction/data";
 
     QObject::connect(correction_process, SIGNAL(readyReadStandardOutput()), this, SLOT(on_stdOut()));
     QObject::connect(correction_process, SIGNAL(readyReadStandardError()), this, SLOT(on_stdOut()));
     QObject::connect(correction_process, SIGNAL(finished(int)), this, SLOT(on_correctionEnd(int)));
+
+    this->expert = NULL;
+
+    CONNECT_CLOSE_BUTTON;
 }
 
 MainWindow::~MainWindow()
@@ -99,10 +109,15 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-max_curr_change" << QString::number(max_current_change);
     params << "-max_read_fail" << QString::number(max_read_fail);
     params << "-data_path" << data_path;
+    params << "-avg_algo" << avg_algo;
+    params << "-window_size" << QString::number(window_size);
+    params << "-avg_smooth" << QString::number(smoothing_factor);
     if (this->include_rf)
         params << "-include_rf";
     if (this->apply_regularization)
         params << "-apply_reg";
+    if (this->rf_only)
+        params << "-rf_only";
 
     disableInputs();
     ui->btnStartCorrection->setEnabled(false);
@@ -166,4 +181,9 @@ void MainWindow::enableInputs()
         this->ui->numIterations->setEnabled(false);
     else
         this->ui->numIterations->setEnabled(true);
+}
+
+void MainWindow::on_btnExpert_clicked()
+{
+    OPEN_UI(expert, Expert, &avg_algo, &window_size, &smoothing_factor, &rf_only, this);
 }

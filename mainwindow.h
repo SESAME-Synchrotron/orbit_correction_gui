@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QProcess>
 
+#include "expert.h"
+#include "macros.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -47,6 +50,8 @@ private slots:
 
     void enableInputs();
 
+    void on_btnExpert_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -62,5 +67,15 @@ private:
 
     QString data_path;
     QProcess* correction_process;
+
+    /*Expert References*/
+    bool rf_only;
+    /*Averaging Expert*/
+    int window_size;
+    double smoothing_factor;
+    QString avg_algo;
+    /*End Averaging Expert*/
+
+    Expert* expert;
 };
 #endif // MAINWINDOW_H

@@ -10,5 +10,5 @@ Makefile
 *.autosave
 ui_*
 .qmake.stash
-Qt-Client
+orbit-qt
 
