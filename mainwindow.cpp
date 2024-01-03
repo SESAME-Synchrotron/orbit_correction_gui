@@ -4,6 +4,10 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , correctionRunning(1)
+    , correctionStoppedSuccess(0)
+    , correctionStoppedFail(2)
+    , correctionInDebugMode(3)
 {
     ui->setupUi(this);
     ui->energy->addItem("800");
@@ -23,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->max_current_change = 0.1;
 
     this->rf_only = false;
+    this->debug_mode = false;
     /*Averaging*/
     this->avg_algo = "ema";
     this->window_size = 5;
@@ -42,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if (this->correction_process->state() == QProcess::Running)
+        this->correction_process->terminate();
     delete ui;
 }
 
@@ -118,11 +125,17 @@ void MainWindow::on_btnStartCorrection_clicked()
         params << "-apply_reg";
     if (this->rf_only)
         params << "-rf_only";
+    if (this->debug_mode)
+        params << "-no_set";
 
     disableInputs();
     ui->btnStartCorrection->setEnabled(false);
     ui->btnStopCorrection->setEnabled(true);
     ui->lblLogs->setText("");
+    if (this->debug_mode)
+        ui->ledCorrectionStatus->setValue(correctionInDebugMode);
+    else
+        ui->ledCorrectionStatus->setValue(correctionRunning);
     correction_process->start("sofb", params);
 }
 
@@ -144,9 +157,14 @@ void MainWindow::on_btnStopCorrection_clicked()
 void MainWindow::on_correctionEnd(int status)
 {
   QString state = "successfully";
+  int correctionStatus = correctionStoppedSuccess;
   if (status)
+  {
       state = "unsuccessfully";
+      correctionStatus = correctionStoppedFail;
+  }
 
+  ui->ledCorrectionStatus->setValue(correctionStatus);
   ui->lblLogs->setText(ui->lblLogs->text() + "\ncorrection ended " + state);
   enableInputs();
   ui->btnStartCorrection->setEnabled(true);
@@ -185,5 +203,5 @@ void MainWindow::enableInputs()
 
 void MainWindow::on_btnExpert_clicked()
 {
-    OPEN_UI(expert, Expert, &avg_algo, &window_size, &smoothing_factor, &rf_only, this);
+    OPEN_UI(expert, Expert, &avg_algo, &window_size, &smoothing_factor, &rf_only, &debug_mode, this);
 }

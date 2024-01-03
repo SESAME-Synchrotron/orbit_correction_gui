@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>495</width>
-    <height>305</height>
+    <width>294</width>
+    <height>255</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,24 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
+      <x>10</x>
+      <y>10</y>
       <width>270</width>
-      <height>120</height>
+      <height>102</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
     <property name="title">
      <string>Averaging</string>
@@ -30,7 +43,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>30</y>
        <width>140</width>
        <height>62</height>
       </rect>
@@ -66,7 +79,7 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>40</y>
+       <y>30</y>
        <width>109</width>
        <height>62</height>
       </rect>
@@ -145,8 +158,8 @@
     <property name="geometry">
      <rect>
       <x>12</x>
-      <y>249</y>
-      <width>464</width>
+      <y>200</y>
+      <width>270</width>
       <height>48</height>
      </rect>
     </property>
@@ -192,9 +205,9 @@ QGroupBox::title {
    <widget class="QCheckBox" name="chkBoxRfOnly">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>160</y>
-      <width>94</width>
+      <x>200</x>
+      <y>130</y>
+      <width>20</width>
       <height>20</height>
      </rect>
     </property>
@@ -220,14 +233,55 @@ QGroupBox::title {
    <widget class="QLabel" name="lblRfOnly">
     <property name="geometry">
      <rect>
-      <x>23</x>
-      <y>160</y>
-      <width>165</width>
+      <x>10</x>
+      <y>130</y>
+      <width>190</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Run RF Correction Only</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDebugMode">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>144</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Debug Mode (no correction)</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkBoxDebugMode">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>144</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

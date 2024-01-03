@@ -4,25 +4,25 @@
 #include <iostream>
 
 Expert::Expert(QString* avg_algo, int* window_size, double* smoothing_factor,
-               bool* rf_only, QWidget *parent) :
+               bool* rf_only, bool* debug_mode, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Expert)
 {   
     ui->setupUi(this);
 
     this->rf_only = rf_only;
-    this->ui->chkBoxRfOnly->setChecked(*rf_only);
-
+    this->debug_mode = debug_mode;
     this->window_size = window_size;
-    this->ui->windowSize->setValue(*window_size);
-
     this->smoothing_factor = smoothing_factor;
-    this->ui->smoothingFactor->setValue(*smoothing_factor);
-
     this->avg_algo = avg_algo;
-    ui->avgAlgo->addItem("moving");
-    ui->avgAlgo->addItem("ema");
-    ui->avgAlgo->setCurrentText(*avg_algo);
+
+    this->ui->chkBoxRfOnly->setChecked(*rf_only);
+    this->ui->chkBoxDebugMode->setChecked(*debug_mode);
+    this->ui->windowSize->setValue(*window_size);   
+    this->ui->smoothingFactor->setValue(*smoothing_factor);
+    this->ui->avgAlgo->addItem("moving");
+    this->ui->avgAlgo->addItem("ema");
+    this->ui->avgAlgo->setCurrentText(*avg_algo);
 
     QObject::connect(this->ui->avgAlgo, SIGNAL(currentTextChanged(const QString&)), this, SLOT(on_avgAlgoChanged(const QString&)));
 
@@ -52,4 +52,9 @@ void Expert::on_smoothingFactor_valueChanged(double value)
 void Expert::on_chkBoxRfOnly_stateChanged(int state)
 {
     *this->rf_only = state;
+}
+
+void Expert::on_chkBoxDebugMode_stateChanged(int state)
+{
+    *this->debug_mode = state;
 }

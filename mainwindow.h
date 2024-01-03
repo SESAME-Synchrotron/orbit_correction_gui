@@ -55,6 +55,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    const int correctionRunning;
+    const int correctionStoppedSuccess;
+    const int correctionStoppedFail;
+    const int correctionInDebugMode;
+
     bool inf_iterations;
     bool include_rf;
     bool apply_regularization;
@@ -70,6 +75,7 @@ private:
 
     /*Expert References*/
     bool rf_only;
+    bool debug_mode;
     /*Averaging Expert*/
     int window_size;
     double smoothing_factor;

@@ -6,77 +6,71 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
-    <height>616</height>
+    <width>924</width>
+    <height>830</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Orbit Correction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QELabel" name="currentIteration">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>20</y>
-      <width>40</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCurrentIterationHead">
-    <property name="geometry">
-     <rect>
-      <x>568</x>
-      <y>20</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Iteration #</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCurrentIteration">
-    <property name="geometry">
-     <rect>
-      <x>682</x>
-      <y>20</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>out of &lt;MAX&gt;</string>
-    </property>
-   </widget>
    <widget class="QEPlot" name="pltdiVsCorrectors">
     <property name="geometry">
      <rect>
       <x>462</x>
-      <y>50</y>
+      <y>11</y>
       <width>450</width>
       <height>240</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="variableAsToolTip">
+     <bool>false</bool>
+    </property>
+    <property name="allowDrop">
+     <bool>false</bool>
+    </property>
+    <property name="variable1" stdset="0">
+     <string>SOFB:Delta:I</string>
+    </property>
+    <property name="xUnit">
+     <string>Corrector Number</string>
+    </property>
+    <property name="yUnit">
+     <string>Δ I</string>
     </property>
    </widget>
    <widget class="QEPlot" name="pltdposVsBpms">
     <property name="geometry">
      <rect>
       <x>462</x>
-      <y>310</y>
+      <y>271</y>
       <width>450</width>
       <height>240</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="variable1" stdset="0">
+     <string>SOFB:Delta:Pos</string>
+    </property>
+    <property name="xUnit">
+     <string>BPM Number</string>
+    </property>
+    <property name="yUnit">
+     <string>Δ position</string>
     </property>
    </widget>
    <widget class="QScrollArea" name="scrollAreaLogs">
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>310</y>
+      <y>271</y>
       <width>431</width>
-      <height>230</height>
+      <height>241</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -91,7 +85,7 @@
        <x>0</x>
        <y>0</y>
        <width>429</width>
-       <height>228</height>
+       <height>239</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -151,7 +145,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>151</x>
-      <y>50</y>
+      <y>11</y>
       <width>110</width>
       <height>122</height>
      </rect>
@@ -301,7 +295,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>50</y>
+      <y>11</y>
       <width>141</width>
       <height>122</height>
      </rect>
@@ -357,10 +351,10 @@ padding: 5px;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>50</y>
+      <x>262</x>
+      <y>11</y>
       <width>45</width>
-      <height>122</height>
+      <height>126</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -424,7 +418,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>190</y>
+      <y>151</y>
       <width>290</width>
       <height>22</height>
      </rect>
@@ -465,7 +459,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>210</y>
+      <y>171</y>
       <width>290</width>
       <height>22</height>
      </rect>
@@ -505,15 +499,15 @@ padding: 5px;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>260</y>
-      <width>293</width>
+      <x>10</x>
+      <y>221</y>
+      <width>291</width>
       <height>30</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <property name="spacing">
-      <number>20</number>
+      <number>10</number>
      </property>
      <item>
       <widget class="QPushButton" name="btnStartCorrection">
@@ -529,13 +523,53 @@ padding: 5px;</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QSimpleShape" name="ledCorrectionStatus">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="colour0" stdset="0">
+        <color>
+         <red>186</red>
+         <green>189</green>
+         <blue>182</blue>
+        </color>
+       </property>
+       <property name="colour2" stdset="0">
+        <color>
+         <red>240</red>
+         <green>5</green>
+         <blue>5</blue>
+        </color>
+       </property>
+       <property name="colour3" stdset="0">
+        <color>
+         <red>237</red>
+         <green>212</green>
+         <blue>0</blue>
+        </color>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QGroupBox" name="footer">
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>560</y>
+      <y>771</y>
       <width>902</width>
       <height>48</height>
      </rect>
@@ -586,6 +620,61 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
+   <widget class="QEPlot" name="pltdRfVsSamplesOverTime">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>521</y>
+      <width>450</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="variable1" stdset="0">
+     <string>SOFB:Delta:RF</string>
+    </property>
+    <property name="yUnit">
+     <string>Δ RF</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCurrentIterationHead">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>530</y>
+      <width>70</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Iteration #</string>
+    </property>
+   </widget>
+   <widget class="QELabel" name="currentIteration">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>530</y>
+      <width>40</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCurrentIteration">
+    <property name="geometry">
+     <rect>
+      <x>127</x>
+      <y>530</y>
+      <width>90</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>out of &lt;MAX&gt;</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -609,6 +698,11 @@ QGroupBox::title {
    <class>QNumericEdit</class>
    <extends>QWidget</extends>
    <header>QNumericEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QSimpleShape</class>
+   <extends>QWidget</extends>
+   <header>QSimpleShape.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

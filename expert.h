@@ -14,7 +14,7 @@ class Expert : public QMainWindow
 
 public:
     explicit Expert(QString* avg_algo, int* window_size, double* smoothing_factor,
-                    bool* rf_only, QWidget *parent = nullptr);
+                    bool* rf_only, bool* debug_mode, QWidget *parent = nullptr);
     ~Expert();
 
 private slots:
@@ -26,13 +26,16 @@ private slots:
 
     void on_chkBoxRfOnly_stateChanged(int arg1);
 
+    void on_chkBoxDebugMode_stateChanged(int arg1);
+
 private:
     Ui::Expert *ui;
 
-    QString* avg_algo;
+    bool* rf_only;
+    bool* debug_mode;
     int* window_size;
     double* smoothing_factor;
-    bool* rf_only;
+    QString* avg_algo;
 };
 
 #endif // EXPERT_H
