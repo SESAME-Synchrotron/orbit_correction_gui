@@ -105,8 +105,12 @@ void MainWindow::on_chkBoxApplyReg_stateChanged(int state)
 void MainWindow::on_btnStartCorrection_clicked()
 {
     int correction_iterations = num_iterations;
+    QString correction_iterations_lbl = QString::number(num_iterations);
     if (this->inf_iterations)
+    {
         correction_iterations = -1;
+        correction_iterations_lbl = "Inf";
+    }
 
     QStringList params;
     params << "-energy" << QString::number(this->energy);
@@ -136,6 +140,7 @@ void MainWindow::on_btnStartCorrection_clicked()
         ui->ledCorrectionStatus->setValue(correctionInDebugMode);
     else
         ui->ledCorrectionStatus->setValue(correctionRunning);
+    ui->lblCurrentIterationLimit->setText("out of " + correction_iterations_lbl);
     correction_process->start("sofb", params);
 }
 

@@ -643,7 +643,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>530</y>
+      <y>560</y>
       <width>70</width>
       <height>20</height>
      </rect>
@@ -655,24 +655,75 @@ QGroupBox::title {
    <widget class="QELabel" name="currentIteration">
     <property name="geometry">
      <rect>
-      <x>85</x>
-      <y>530</y>
-      <width>40</width>
+      <x>87</x>
+      <y>560</y>
+      <width>96</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="variable" stdset="0">
+     <string>SOFB:IterationNumber</string>
+    </property>
+    <property name="precision">
+     <number>10</number>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblCurrentIteration">
+   <widget class="QLabel" name="lblCurrentIterationLimit">
     <property name="geometry">
      <rect>
-      <x>127</x>
-      <y>530</y>
+      <x>190</x>
+      <y>560</y>
       <width>90</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>out of &lt;MAX&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMovAvgErr">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>530</y>
+      <width>150</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Moving Average Error</string>
+    </property>
+   </widget>
+   <widget class="QELabel" name="movAvgErr">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>530</y>
+      <width>90</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="variable" stdset="0">
+     <string>SOFB:MovAvg:Err</string>
+    </property>
+    <property name="precision">
+     <number>7</number>
+    </property>
+    <property name="useDbPrecision">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMovAvgErrUnit">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>530</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>µm</string>
     </property>
    </widget>
   </widget>
