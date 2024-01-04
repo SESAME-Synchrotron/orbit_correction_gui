@@ -4,10 +4,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , correctionRunning(1)
-    , correctionStoppedSuccess(0)
-    , correctionStoppedFail(2)
-    , correctionInDebugMode(3)
 {
     ui->setupUi(this);
     ui->energy->addItem("800");
@@ -136,10 +132,6 @@ void MainWindow::on_btnStartCorrection_clicked()
     ui->btnStartCorrection->setEnabled(false);
     ui->btnStopCorrection->setEnabled(true);
     ui->lblLogs->setText("");
-    if (this->debug_mode)
-        ui->ledCorrectionStatus->setValue(correctionInDebugMode);
-    else
-        ui->ledCorrectionStatus->setValue(correctionRunning);
     ui->lblCurrentIterationLimit->setText("out of " + correction_iterations_lbl);
     correction_process->start("sofb", params);
 }
@@ -162,14 +154,9 @@ void MainWindow::on_btnStopCorrection_clicked()
 void MainWindow::on_correctionEnd(int status)
 {
   QString state = "successfully";
-  int correctionStatus = correctionStoppedSuccess;
   if (status)
-  {
       state = "unsuccessfully";
-      correctionStatus = correctionStoppedFail;
-  }
 
-  ui->ledCorrectionStatus->setValue(correctionStatus);
   ui->lblLogs->setText(ui->lblLogs->text() + "\ncorrection ended " + state);
   enableInputs();
   ui->btnStartCorrection->setEnabled(true);

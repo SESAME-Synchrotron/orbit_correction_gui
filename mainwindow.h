@@ -55,11 +55,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    const int correctionRunning;
-    const int correctionStoppedSuccess;
-    const int correctionStoppedFail;
-    const int correctionInDebugMode;
-
     bool inf_iterations;
     bool include_rf;
     bool apply_regularization;

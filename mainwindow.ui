@@ -501,7 +501,7 @@ padding: 5px;</string>
      <rect>
       <x>10</x>
       <y>221</y>
-      <width>291</width>
+      <width>309</width>
       <height>30</height>
      </rect>
     </property>
@@ -524,7 +524,7 @@ padding: 5px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QSimpleShape" name="ledCorrectionStatus">
+      <widget class="QESimpleShape" name="ledCorrectionStatus">
        <property name="minimumSize">
         <size>
          <width>25</width>
@@ -536,9 +536,6 @@ padding: 5px;</string>
          <width>25</width>
          <height>25</height>
         </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
        </property>
        <property name="colour0" stdset="0">
         <color>
@@ -560,6 +557,9 @@ padding: 5px;</string>
          <green>212</green>
          <blue>0</blue>
         </color>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:CorrectionStatus</string>
        </property>
       </widget>
      </item>
@@ -738,6 +738,11 @@ QGroupBox::title {
    <class>QEPlot</class>
    <extends>QEFrame</extends>
    <header>QEPlot.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QESimpleShape</class>
+   <extends>QSimpleShape</extends>
+   <header>QESimpleShape.h</header>
   </customwidget>
   <customwidget>
    <class>QEFrame</class>
