@@ -155,25 +155,31 @@ padding: 5px;</string>
       <number>0</number>
      </property>
      <item>
-      <widget class="QComboBox" name="energy">
+      <widget class="QEComboBox" name="energy">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
        </property>
-       <property name="currentText">
-        <string/>
+       <property name="variable" stdset="0">
+        <string>SOFB:EnergyLevel</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QNumericEdit" name="numIterations">
+      <widget class="QENumericEdit" name="numIterations">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:NumIterations</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
        </property>
        <property name="leadingZeros">
         <number>4</number>
@@ -187,15 +193,27 @@ padding: 5px;</string>
        <property name="maximum">
         <double>9999.000000000000000</double>
        </property>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QNumericEdit" name="numSingularValues">
+      <widget class="QENumericEdit" name="numSingularValues">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:NumSingularVals</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
        </property>
        <property name="leadingZeros">
         <number>2</number>
@@ -209,18 +227,27 @@ padding: 5px;</string>
        <property name="maximum">
         <double>65.000000000000000</double>
        </property>
-       <property name="value">
-        <double>40.000000000000000</double>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QNumericEdit" name="maxFreqChange">
+      <widget class="QENumericEdit" name="maxFreqChange">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MaxFreqChange</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
        </property>
        <property name="leadingZeros">
         <number>5</number>
@@ -234,18 +261,30 @@ padding: 5px;</string>
        <property name="maximum">
         <double>99999.990000000005239</double>
        </property>
-       <property name="value">
-        <double>1000.000000000000000</double>
+       <property name="addUnits">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QNumericEdit" name="maxCurrChange">
+      <widget class="QENumericEdit" name="maxCurrChange">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MaxCurrentChange</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
        </property>
        <property name="leadingZeros">
         <number>1</number>
@@ -259,18 +298,30 @@ padding: 5px;</string>
        <property name="maximum">
         <double>9.999900000000000</double>
        </property>
-       <property name="value">
-        <double>0.100000000000000</double>
+       <property name="addUnits">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QNumericEdit" name="maxReadFail">
+      <widget class="QENumericEdit" name="maxReadFail">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MaxReadFail</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
        </property>
        <property name="leadingZeros">
         <number>3</number>
@@ -284,8 +335,14 @@ padding: 5px;</string>
        <property name="maximum">
         <double>999.000000000000000</double>
        </property>
-       <property name="value">
-        <double>5.000000000000000</double>
+       <property name="addUnits">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -354,7 +411,7 @@ padding: 5px;</string>
       <x>262</x>
       <y>11</y>
       <width>45</width>
-      <height>126</height>
+      <height>122</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -377,7 +434,7 @@ padding: 5px;</string>
         <string>Inf</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="tristate">
         <bool>false</bool>
@@ -432,24 +489,12 @@ padding: 5px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="chkBoxIncludeRf">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
+      <widget class="QECheckBox" name="chkBoxIncludeRf">
        <property name="text">
         <string/>
        </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-       <property name="tristate">
-        <bool>false</bool>
+       <property name="variable" stdset="0">
+        <string>SOFB:IncludeRf</string>
        </property>
       </widget>
      </item>
@@ -473,24 +518,12 @@ padding: 5px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="chkBoxApplyReg">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
+      <widget class="QECheckBox" name="chkBoxApplyReg">
        <property name="text">
         <string/>
        </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-       <property name="tristate">
-        <bool>false</bool>
+       <property name="variable" stdset="0">
+        <string>SOFB:ApplyRegularization</string>
        </property>
       </widget>
      </item>
@@ -730,9 +763,24 @@ QGroupBox::title {
  </widget>
  <customwidgets>
   <customwidget>
+   <class>QECheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>QECheckBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QEComboBox</class>
+   <extends>QComboBox</extends>
+   <header>QEComboBox.h</header>
+  </customwidget>
+  <customwidget>
    <class>QELabel</class>
    <extends>QLabel</extends>
    <header>QELabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QENumericEdit</class>
+   <extends>QWidget</extends>
+   <header>QENumericEdit.h</header>
   </customwidget>
   <customwidget>
    <class>QEPlot</class>
@@ -749,11 +797,6 @@ QGroupBox::title {
    <extends>QFrame</extends>
    <header>QEFrame.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QNumericEdit</class>
-   <extends>QWidget</extends>
-   <header>QNumericEdit.h</header>
   </customwidget>
   <customwidget>
    <class>QSimpleShape</class>

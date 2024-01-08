@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QProcess>
 
+#include <qepicspv.h>
 #include "expert.h"
+#include "client.h"
 #include "macros.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,23 +22,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_energy_currentTextChanged(const QString &arg1);
-
-    void on_numIterations_valueChanged(int value);
-
-    void on_chkBoxInfIterations_stateChanged(int arg1);
-
-    void on_numSingularValues_valueChanged(int value);
-
-    void on_maxFreqChange_valueChanged(double value);
-
-    void on_maxCurrChange_valueChanged(double value);
-
-    void on_maxReadFail_valueChanged(int value);
-
-    void on_chkBoxIncludeRf_stateChanged(int arg1);
-
-    void on_chkBoxApplyReg_stateChanged(int arg1);
+    void on_chkBoxInfIterations_stateChanged(int);
 
     void on_btnStartCorrection_clicked();
 
@@ -50,31 +36,43 @@ private slots:
 
     void enableInputs();
 
+    void onNumIterationsInit(const QVariant &);
+
+    void onIncludeRfInit(const QVariant &);
+
+    void onApplyRegularizationInit(const QVariant &);
+
+    void onCorrectionStatusInit(const QVariant &);
+
+    void onCorrectionStatusChanged(const QVariant &);
+
     void on_btnExpert_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     bool inf_iterations;
-    bool include_rf;
-    bool apply_regularization;
-    int energy;
-    int num_iterations;
-    int num_singular_values;
-    int max_read_fail;
-    double max_frequency_change;
-    double max_current_change;
 
     QString data_path;
     QProcess* correction_process;
 
+    QEpicsPV* energy;
+    QEpicsPV* num_iterations;
+    QEpicsPV* num_singular_values;
+    QEpicsPV* max_frequency_change;
+    QEpicsPV* max_current_change;
+    QEpicsPV* max_read_fail;
+    QEpicsPV* correctionStatus;
+    QEpicsPV* include_rf;
+    QEpicsPV* apply_regularization;
+
     /*Expert References*/
-    bool rf_only;
-    bool debug_mode;
+    QEpicsPV* rf_only;
+    QEpicsPV* debug_mode;
     /*Averaging Expert*/
-    int window_size;
-    double smoothing_factor;
-    QString avg_algo;
+    QEpicsPV* window_size;
+    QEpicsPV* smoothing_factor;
+    QEpicsPV* avg_algo;
     /*End Averaging Expert*/
 
     Expert* expert;

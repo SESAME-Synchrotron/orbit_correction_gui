@@ -1,33 +1,27 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <iostream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->energy->addItem("800");
-    ui->energy->addItem("2500");
-    ui->energy->setCurrentText("2500");
-
-    this->inf_iterations = true;
     this->ui->numIterations->setEnabled(false);
 
-    this->include_rf = true;
-    this->apply_regularization = false;
-    this->energy = 2500;
-    this->num_iterations = 1;
-    this->num_singular_values = 40;
-    this->max_read_fail = 5;
-    this->max_frequency_change = 1000.0;
-    this->max_current_change = 0.1;
-
-    this->rf_only = false;
-    this->debug_mode = false;
-    /*Averaging*/
-    this->avg_algo = "ema";
-    this->window_size = 5;
-    this->smoothing_factor = 0.33;
+    this->energy               = new QEpicsPV("SOFB:EnergyLevel");
+    this->num_iterations       = new QEpicsPV("SOFB:NumIterations");
+    this->num_singular_values  = new QEpicsPV("SOFB:NumSingularVals");
+    this->max_frequency_change = new QEpicsPV("SOFB:MaxFreqChange");
+    this->max_current_change   = new QEpicsPV("SOFB:MaxCurrentChange");
+    this->max_read_fail        = new QEpicsPV("SOFB:MaxReadFail");
+    this->correctionStatus     = new QEpicsPV("SOFB:CorrectionStatus");
+    this->include_rf           = new QEpicsPV("SOFB:IncludeRf");
+    this->apply_regularization = new QEpicsPV("SOFB:ApplyRegularization");
+    this->rf_only              = new QEpicsPV("SOFB:OnlyRf");
+    this->debug_mode           = new QEpicsPV("SOFB:NoSetPv");
+    this->avg_algo             = new QEpicsPV("SOFB:MovAvg:Algo");
+    this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
+    this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
 
     this->correction_process = new QProcess();
     this->data_path = "/home/control/Documents/sofb/orbit_correction/data";
@@ -35,6 +29,11 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(correction_process, SIGNAL(readyReadStandardOutput()), this, SLOT(on_stdOut()));
     QObject::connect(correction_process, SIGNAL(readyReadStandardError()), this, SLOT(on_stdOut()));
     QObject::connect(correction_process, SIGNAL(finished(int)), this, SLOT(on_correctionEnd(int)));
+    QObject::connect(num_iterations, SIGNAL(valueInited(const QVariant &)), this, SLOT(onNumIterationsInit(const QVariant &)));
+    QObject::connect(include_rf, SIGNAL(valueInited(const QVariant &)), this, SLOT(onIncludeRfInit(const QVariant &)));
+    QObject::connect(apply_regularization, SIGNAL(valueInited(const QVariant &)), this, SLOT(onApplyRegularizationInit(const QVariant &)));
+    QObject::connect(correctionStatus, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
+    QObject::connect(correctionStatus, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
 
     this->expert = NULL;
 
@@ -43,19 +42,31 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    if (this->correction_process->state() == QProcess::Running)
-        this->correction_process->terminate();
     delete ui;
 }
 
-void MainWindow::on_energy_currentTextChanged(const QString &energyText)
+void MainWindow::onNumIterationsInit(const QVariant& numOfIterations)
 {
-    this->energy = energyText.toInt();
+    if (numOfIterations == -1)
+    {
+        this->inf_iterations = true;
+        this->ui->chkBoxInfIterations->setChecked(1);
+    }
+    else
+    {
+        this->inf_iterations = false;
+        this->ui->chkBoxInfIterations->setChecked(0);
+    }
 }
 
-void MainWindow::on_numIterations_valueChanged(int value)
+void MainWindow::onIncludeRfInit(const QVariant &val)
 {
-    this->num_iterations = value;
+    this->ui->chkBoxIncludeRf->setChecked(val.toBool());
+}
+
+void MainWindow::onApplyRegularizationInit(const QVariant &val)
+{
+    this->ui->chkBoxApplyReg->setChecked(val.toBool());
 }
 
 void MainWindow::on_chkBoxInfIterations_stateChanged(int state)
@@ -63,69 +74,47 @@ void MainWindow::on_chkBoxInfIterations_stateChanged(int state)
     this->inf_iterations = state;
 
     if (state)
+    {
+        Client::writePV("SOFB:NumIterations", -1);
         this->ui->numIterations->setEnabled(false);
+    }
     else
+    {
+        Client::writePV("SOFB:NumIterations", 1);
         this->ui->numIterations->setEnabled(true);
-}
-
-void MainWindow::on_numSingularValues_valueChanged(int value)
-{
-    this->num_singular_values = value;
-}
-
-void MainWindow::on_maxFreqChange_valueChanged(double value)
-{
-    this->max_frequency_change = value;
-}
-
-void MainWindow::on_maxCurrChange_valueChanged(double value)
-{
-    this->max_current_change = value;
-}
-
-void MainWindow::on_maxReadFail_valueChanged(int value)
-{
-    this->max_read_fail = value;
-}
-
-void MainWindow::on_chkBoxIncludeRf_stateChanged(int state)
-{
-    this->include_rf = state;
-}
-
-void MainWindow::on_chkBoxApplyReg_stateChanged(int state)
-{
-    this->apply_regularization = state;
+    }
 }
 
 void MainWindow::on_btnStartCorrection_clicked()
 {
-    int correction_iterations = num_iterations;
-    QString correction_iterations_lbl = QString::number(num_iterations);
+    int correction_iterations = num_iterations->get().toInt();
+    QString correction_iterations_lbl = QString::number(correction_iterations);
     if (this->inf_iterations)
     {
         correction_iterations = -1;
         correction_iterations_lbl = "Inf";
     }
 
+    QStringList energyLevels = this->energy->getEnum();
+    QStringList movAvgAlgos = this->avg_algo->getEnum();
     QStringList params;
-    params << "-energy" << QString::number(this->energy);
+    params << "-energy" << energyLevels[this->energy->get().toInt()];
     params << "-num_iter" << QString::number(correction_iterations);
-    params << "-num_singular" << QString::number(num_singular_values);
-    params << "-max_freq_change" << QString::number(max_frequency_change);
-    params << "-max_curr_change" << QString::number(max_current_change);
-    params << "-max_read_fail" << QString::number(max_read_fail);
+    params << "-num_singular" << num_singular_values->get().toString();
+    params << "-max_freq_change" << max_frequency_change->get().toString();
+    params << "-max_curr_change" << max_current_change->get().toString();
+    params << "-max_read_fail" << max_read_fail->get().toString();
     params << "-data_path" << data_path;
-    params << "-avg_algo" << avg_algo;
-    params << "-window_size" << QString::number(window_size);
-    params << "-avg_smooth" << QString::number(smoothing_factor);
-    if (this->include_rf)
+    params << "-avg_algo" << movAvgAlgos[this->avg_algo->get().toInt()];
+    params << "-window_size" << window_size->get().toString();
+    params << "-avg_smooth" << smoothing_factor->get().toString();
+    if (this->include_rf->get().toBool())
         params << "-include_rf";
-    if (this->apply_regularization)
+    if (this->apply_regularization->get().toBool())
         params << "-apply_reg";
-    if (this->rf_only)
+    if (this->rf_only->get().toBool())
         params << "-rf_only";
-    if (this->debug_mode)
+    if (this->debug_mode->get().toBool())
         params << "-no_set";
 
     disableInputs();
@@ -148,16 +137,24 @@ void MainWindow::on_stdOut()
 
 void MainWindow::on_btnStopCorrection_clicked()
 {
-    this->correction_process->terminate();
+    QString processName = "sofb$";
+    QProcess pkillProcess;
+    pkillProcess.start("pkill", QStringList() << processName);
+    pkillProcess.waitForFinished();
+
+    if (pkillProcess.exitCode() != 0)
+    {
+        std::cout << "Error in Terminating Correction Processes: " << pkillProcess.errorString().toStdString() << std::endl;
+    }
 }
 
 void MainWindow::on_correctionEnd(int status)
 {
-  QString state = "successfully";
+  QString state = "Success";
   if (status)
-      state = "unsuccessfully";
+      state = "Fail";
 
-  ui->lblLogs->setText(ui->lblLogs->text() + "\ncorrection ended " + state);
+  ui->lblLogs->setText(ui->lblLogs->text() + "\n" + state);
   enableInputs();
   ui->btnStartCorrection->setEnabled(true);
   ui->btnStopCorrection->setEnabled(false);
@@ -193,7 +190,38 @@ void MainWindow::enableInputs()
         this->ui->numIterations->setEnabled(true);
 }
 
+void MainWindow::onCorrectionStatusInit(const QVariant &status)
+{
+    const int running = 1;
+    const int debug = 3;
+    if (status == running || status == debug)
+    {
+      ui->btnStartCorrection->setEnabled(false);
+      ui->btnStopCorrection->setEnabled(false);
+      disableInputs();
+    }
+}
+
+void MainWindow::onCorrectionStatusChanged(const QVariant &status)
+{
+    const int success = 0;
+    const int running = 1;
+    const int fail = 2;
+    const int debug = 3;
+    if (status == success || status == fail)
+    {
+      ui->btnStartCorrection->setEnabled(true);
+      ui->btnStopCorrection->setEnabled(false);
+      enableInputs();
+    } else if (status == running || status == debug)
+    {
+        ui->btnStartCorrection->setEnabled(false);
+        ui->btnStopCorrection->setEnabled(true);
+        disableInputs();
+    }
+}
+
 void MainWindow::on_btnExpert_clicked()
 {
-    OPEN_UI(expert, Expert, &avg_algo, &window_size, &smoothing_factor, &rf_only, &debug_mode, this);
+    OPEN_UI(expert, Expert, this);
 }

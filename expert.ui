@@ -89,25 +89,40 @@ QGroupBox::title {
        <number>0</number>
       </property>
       <item>
-       <widget class="QComboBox" name="avgAlgo">
+       <widget class="QEComboBox" name="avgAlgo">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
           <height>20</height>
          </size>
         </property>
-        <property name="currentText">
-         <string/>
+        <property name="variable" stdset="0">
+         <string>SOFB:MovAvg:Algo</string>
+        </property>
+        <property name="writeOnChange">
+         <bool>true</bool>
+        </property>
+        <property name="displayAlarmStateOption" stdset="0">
+         <enum>QEComboBox::Always</enum>
+        </property>
+        <property name="useDbEnumerations">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QNumericEdit" name="windowSize">
+       <widget class="QENumericEdit" name="windowSize">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
           <height>20</height>
          </size>
+        </property>
+        <property name="variable" stdset="0">
+         <string>SOFB:MovAvg:WindowSize</string>
+        </property>
+        <property name="autoScale">
+         <bool>false</bool>
         </property>
         <property name="leadingZeros">
          <number>4</number>
@@ -121,18 +136,30 @@ QGroupBox::title {
         <property name="maximum">
          <double>9999.000000000000000</double>
         </property>
-        <property name="value">
-         <double>5.000000000000000</double>
+        <property name="writeOnEnter">
+         <bool>false</bool>
+        </property>
+        <property name="writeOnFinish">
+         <bool>false</bool>
+        </property>
+        <property name="writeOnChange">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QNumericEdit" name="smoothingFactor">
+       <widget class="QENumericEdit" name="smoothingFactor">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
           <height>20</height>
          </size>
+        </property>
+        <property name="variable" stdset="0">
+         <string>SOFB:MovAvg:SmoothingFactor</string>
+        </property>
+        <property name="autoScale">
+         <bool>false</bool>
         </property>
         <property name="leadingZeros">
          <number>1</number>
@@ -146,8 +173,14 @@ QGroupBox::title {
         <property name="maximum">
          <double>1.000000000000000</double>
         </property>
-        <property name="value">
-         <double>0.330000000000000</double>
+        <property name="writeOnEnter">
+         <bool>false</bool>
+        </property>
+        <property name="writeOnFinish">
+         <bool>false</bool>
+        </property>
+        <property name="writeOnChange">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -202,34 +235,6 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
-   <widget class="QCheckBox" name="chkBoxRfOnly">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>130</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>20</height>
-     </size>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="lblRfOnly">
     <property name="geometry">
      <rect>
@@ -256,41 +261,55 @@ QGroupBox::title {
      <string>Debug Mode (no correction)</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="chkBoxDebugMode">
+   <widget class="QECheckBox" name="chkBoxDebugMode">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>144</y>
+      <y>145</y>
       <width>20</width>
       <height>20</height>
      </rect>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>20</height>
-     </size>
+    <property name="text">
+     <string/>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
+    <property name="variable" stdset="0">
+     <string>SOFB:NoSetPv</string>
+    </property>
+   </widget>
+   <widget class="QECheckBox" name="chkBoxRfOnly">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>129</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="tristate">
-     <bool>false</bool>
+    <property name="variable" stdset="0">
+     <string>SOFB:OnlyRf</string>
     </property>
    </widget>
   </widget>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QNumericEdit</class>
+   <class>QECheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>QECheckBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QEComboBox</class>
+   <extends>QComboBox</extends>
+   <header>QEComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QENumericEdit</class>
    <extends>QWidget</extends>
-   <header>QNumericEdit.h</header>
+   <header>QENumericEdit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

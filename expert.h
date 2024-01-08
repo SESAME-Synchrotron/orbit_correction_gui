@@ -2,6 +2,7 @@
 #define EXPERT_H
 
 #include <QMainWindow>
+#include <qepicspv.h>
 #include "macros.h"
 
 namespace Ui {
@@ -13,29 +14,31 @@ class Expert : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Expert(QString* avg_algo, int* window_size, double* smoothing_factor,
-                    bool* rf_only, bool* debug_mode, QWidget *parent = nullptr);
+    explicit Expert(QWidget *parent = nullptr);
     ~Expert();
 
 private slots:
-    void on_windowSize_valueChanged(int value);
+    void onRfOnlyInit(const QVariant &);
 
-    void on_avgAlgoChanged(const QString &avg_algo_text);
+    void onDebugModeInit(const QVariant &);
 
-    void on_smoothingFactor_valueChanged(double value);
+    void onCorrectionStatusInit(const QVariant &);
 
-    void on_chkBoxRfOnly_stateChanged(int arg1);
+    void onCorrectionStatusChanged(const QVariant &);
 
-    void on_chkBoxDebugMode_stateChanged(int arg1);
+    void enableInputs();
+
+    void disableInputs();
 
 private:
     Ui::Expert *ui;
 
-    bool* rf_only;
-    bool* debug_mode;
-    int* window_size;
-    double* smoothing_factor;
-    QString* avg_algo;
+    QEpicsPV* rf_only;
+    QEpicsPV* debug_mode;
+    QEpicsPV* window_size;
+    QEpicsPV* smoothing_factor;
+    QEpicsPV* avg_algo;
+    QEpicsPV* correctionStatus;
 };
 
 #endif // EXPERT_H

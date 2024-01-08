@@ -3,28 +3,22 @@
 
 #include <iostream>
 
-Expert::Expert(QString* avg_algo, int* window_size, double* smoothing_factor,
-               bool* rf_only, bool* debug_mode, QWidget *parent) :
+Expert::Expert(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Expert)
 {   
     ui->setupUi(this);
 
-    this->rf_only = rf_only;
-    this->debug_mode = debug_mode;
-    this->window_size = window_size;
-    this->smoothing_factor = smoothing_factor;
-    this->avg_algo = avg_algo;
+    this->rf_only          = new QEpicsPV("SOFB:OnlyRf");
+    this->debug_mode       = new QEpicsPV("SOFB:NoSetPv");
+    this->window_size      = new QEpicsPV("SOFB:MovAvg:WindowSize");
+    this->smoothing_factor = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
+    this->correctionStatus = new QEpicsPV("SOFB:CorrectionStatus");
 
-    this->ui->chkBoxRfOnly->setChecked(*rf_only);
-    this->ui->chkBoxDebugMode->setChecked(*debug_mode);
-    this->ui->windowSize->setValue(*window_size);   
-    this->ui->smoothingFactor->setValue(*smoothing_factor);
-    this->ui->avgAlgo->addItem("moving");
-    this->ui->avgAlgo->addItem("ema");
-    this->ui->avgAlgo->setCurrentText(*avg_algo);
-
-    QObject::connect(this->ui->avgAlgo, SIGNAL(currentTextChanged(const QString&)), this, SLOT(on_avgAlgoChanged(const QString&)));
+    QObject::connect(rf_only, SIGNAL(valueInited(const QVariant &)), this, SLOT(onRfOnlyInit(const QVariant &)));
+    QObject::connect(debug_mode, SIGNAL(valueInited(const QVariant &)), this, SLOT(onDebugModeInit(const QVariant &)));
+    QObject::connect(correctionStatus, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
+    QObject::connect(correctionStatus, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
 
     CONNECT_CLOSE_BUTTON;
 }
@@ -34,27 +28,55 @@ Expert::~Expert()
     delete ui;
 }
 
-void Expert::on_windowSize_valueChanged(int value)
+void Expert::onRfOnlyInit(const QVariant &val)
 {
-    *this->window_size = value;
+    this->ui->chkBoxRfOnly->setChecked(val.toBool());
 }
 
-void Expert::on_avgAlgoChanged(const QString &selected_avg_algo)
+void Expert::onDebugModeInit(const QVariant &val)
 {
-    *this->avg_algo = selected_avg_algo;
+    this->ui->chkBoxDebugMode->setChecked(val.toBool());
 }
 
-void Expert::on_smoothingFactor_valueChanged(double value)
+void Expert::onCorrectionStatusInit(const QVariant &status)
 {
-    *this->smoothing_factor = value;
+    const int running = 1;
+    const int debug = 3;
+    if (status == running || status == debug)
+    {
+      disableInputs();
+    }
 }
 
-void Expert::on_chkBoxRfOnly_stateChanged(int state)
+void Expert::onCorrectionStatusChanged(const QVariant &status)
 {
-    *this->rf_only = state;
+    const int success = 0;
+    const int running = 1;
+    const int fail = 2;
+    const int debug = 3;
+    if (status == success || status == fail)
+    {
+      enableInputs();
+    } else if (status == running || status == debug)
+    {
+      disableInputs();
+    }
 }
 
-void Expert::on_chkBoxDebugMode_stateChanged(int state)
+void Expert::enableInputs()
 {
-    *this->debug_mode = state;
+    this->ui->avgAlgo->setEnabled(true);
+    this->ui->windowSize->setEnabled(true);
+    this->ui->smoothingFactor->setEnabled(true);
+    this->ui->chkBoxRfOnly->setEnabled(true);
+    this->ui->chkBoxDebugMode->setEnabled(true);
+}
+
+void Expert::disableInputs()
+{
+    this->ui->avgAlgo->setEnabled(false);
+    this->ui->windowSize->setEnabled(false);
+    this->ui->smoothingFactor->setEnabled(false);
+    this->ui->chkBoxRfOnly->setEnabled(false);
+    this->ui->chkBoxDebugMode->setEnabled(false);
 }
