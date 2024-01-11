@@ -26,7 +26,7 @@ private slots:
 
     void on_btnStartCorrection_clicked();
 
-    void on_stdOut();
+    void print_stdout();
 
     void on_btnStopCorrection_clicked();
 
@@ -48,13 +48,21 @@ private slots:
 
     void on_btnExpert_clicked();
 
+    void startLogging();
+
+    void logData();
+
 private:
     Ui::MainWindow *ui;
 
     bool inf_iterations;
 
+    QString base_path;
     QString data_path;
+    QString logs_path;
     QProcess* correction_process;
+    QFile* logFile;
+    QTimer* timer;
 
     QEpicsPV* energy;
     QEpicsPV* num_iterations;

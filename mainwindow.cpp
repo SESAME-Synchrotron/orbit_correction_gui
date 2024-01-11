@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,16 +25,19 @@ MainWindow::MainWindow(QWidget *parent)
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
 
     this->correction_process = new QProcess();
-    this->data_path = "/home/control/Documents/sofb/orbit_correction/data";
+    this->base_path = "/home/control/Documents/sofb/orbit_correction/";
+    this->data_path = this->base_path + "data";
+    this->logs_path = this->base_path + "logs";
+    this->logFile = new QFile(this->logs_path + "/last_run.log");
+    this->timer = new QTimer(this);
 
-    QObject::connect(correction_process, SIGNAL(readyReadStandardOutput()), this, SLOT(on_stdOut()));
-    QObject::connect(correction_process, SIGNAL(readyReadStandardError()), this, SLOT(on_stdOut()));
     QObject::connect(correction_process, SIGNAL(finished(int)), this, SLOT(on_correctionEnd(int)));
     QObject::connect(num_iterations, SIGNAL(valueInited(const QVariant &)), this, SLOT(onNumIterationsInit(const QVariant &)));
     QObject::connect(include_rf, SIGNAL(valueInited(const QVariant &)), this, SLOT(onIncludeRfInit(const QVariant &)));
     QObject::connect(apply_regularization, SIGNAL(valueInited(const QVariant &)), this, SLOT(onApplyRegularizationInit(const QVariant &)));
     QObject::connect(correctionStatus, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
     QObject::connect(correctionStatus, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(logData()));
 
     this->expert = NULL;
 
@@ -42,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if (logFile->isOpen())
+        logFile->close();
     delete ui;
 }
 
@@ -105,6 +111,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-max_curr_change" << max_current_change->get().toString();
     params << "-max_read_fail" << max_read_fail->get().toString();
     params << "-data_path" << data_path;
+    params << "-logs_path" << logs_path;
     params << "-avg_algo" << movAvgAlgos[this->avg_algo->get().toInt()];
     params << "-window_size" << window_size->get().toString();
     params << "-avg_smooth" << smoothing_factor->get().toString();
@@ -125,7 +132,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     correction_process->start("sofb", params);
 }
 
-void MainWindow::on_stdOut()
+void MainWindow::print_stdout()
 {
     QString p_stdout = correction_process->readAllStandardOutput();
     QString p_stderr = correction_process->readAllStandardError();
@@ -152,7 +159,7 @@ void MainWindow::on_correctionEnd(int status)
 {
   QString state = "Success";
   if (status)
-      state = "Fail";
+    state = "Fail";
 
   ui->lblLogs->setText(ui->lblLogs->text() + "\n" + state);
   enableInputs();
@@ -196,9 +203,10 @@ void MainWindow::onCorrectionStatusInit(const QVariant &status)
     const int debug = 3;
     if (status == running || status == debug)
     {
-      ui->btnStartCorrection->setEnabled(false);
-      ui->btnStopCorrection->setEnabled(false);
-      disableInputs();
+        ui->btnStartCorrection->setEnabled(false);
+        ui->btnStopCorrection->setEnabled(false);
+        startLogging();
+        disableInputs();
     }
 }
 
@@ -210,13 +218,17 @@ void MainWindow::onCorrectionStatusChanged(const QVariant &status)
     const int debug = 3;
     if (status == success || status == fail)
     {
-      ui->btnStartCorrection->setEnabled(true);
-      ui->btnStopCorrection->setEnabled(false);
-      enableInputs();
+        ui->btnStartCorrection->setEnabled(true);
+        ui->btnStopCorrection->setEnabled(false);
+        enableInputs();
+        //this->timer->stop();
+        //if (logFile->isOpen())
+        //    logFile->close();
     } else if (status == running || status == debug)
     {
         ui->btnStartCorrection->setEnabled(false);
         ui->btnStopCorrection->setEnabled(true);
+        startLogging();
         disableInputs();
     }
 }
@@ -224,4 +236,23 @@ void MainWindow::onCorrectionStatusChanged(const QVariant &status)
 void MainWindow::on_btnExpert_clicked()
 {
     OPEN_UI(expert, Expert, this);
+}
+
+void MainWindow::startLogging()
+{
+    if(!logFile->isOpen())
+    {
+      if(!logFile->open(QIODevice::ReadOnly))
+          this->ui->lblLogs->setText("Warning: Could not read log file\n" + logFile->errorString());
+      else
+          this->timer->start(500);
+    }
+}
+
+void MainWindow::logData()
+{
+    QTextStream in(logFile);
+    QString content = in.readAll();
+    this->ui->lblLogs->setText(content);
+    logFile->seek(0);
 }
