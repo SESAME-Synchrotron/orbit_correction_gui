@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>830</height>
+    <width>1402</width>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -602,8 +602,8 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>771</y>
-      <width>902</width>
+      <y>590</y>
+      <width>1387</width>
       <height>48</height>
      </rect>
     </property>
@@ -656,8 +656,8 @@ QGroupBox::title {
    <widget class="QEPlot" name="pltdRfVsSamplesOverTime">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>521</y>
+      <x>940</x>
+      <y>270</y>
       <width>450</width>
       <height>240</height>
      </rect>
@@ -757,6 +757,34 @@ QGroupBox::title {
     </property>
     <property name="text">
      <string>µm</string>
+    </property>
+   </widget>
+   <widget class="QEPlot" name="pltdiVsCorrectors_2">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>10</y>
+      <width>450</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="variableAsToolTip">
+     <bool>false</bool>
+    </property>
+    <property name="allowDrop">
+     <bool>false</bool>
+    </property>
+    <property name="variable1" stdset="0">
+     <string>SOFB:SingularValues</string>
+    </property>
+    <property name="xUnit">
+     <string>Index</string>
+    </property>
+    <property name="yUnit">
+     <string>Singular Value</string>
     </property>
    </widget>
   </widget>
