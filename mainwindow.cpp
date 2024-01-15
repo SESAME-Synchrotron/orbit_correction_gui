@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->avg_algo             = new QEpicsPV("SOFB:MovAvg:Algo");
     this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
+    this->regularization_Param = new QEpicsPV("SOFB:RegularizationParam");
 
     this->correction_process = new QProcess();
     this->base_path = "/home/control/Documents/sofb/orbit_correction/";
@@ -115,6 +116,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-avg_algo" << movAvgAlgos[this->avg_algo->get().toInt()];
     params << "-window_size" << window_size->get().toString();
     params << "-avg_smooth" << smoothing_factor->get().toString();
+    params << "-reg_param" << regularization_Param->get().toString();
     if (this->include_rf->get().toBool())
         params << "-include_rf";
     if (this->apply_regularization->get().toBool())
@@ -129,6 +131,10 @@ void MainWindow::on_btnStartCorrection_clicked()
     ui->btnStopCorrection->setEnabled(true);
     ui->lblLogs->setText("");
     ui->lblCurrentIterationLimit->setText("out of " + correction_iterations_lbl);
+    //for (QString param : params)
+    //{
+    //    std::cout << param.toStdString() << " ";
+    //}
     correction_process->start("sofb", params);
 }
 

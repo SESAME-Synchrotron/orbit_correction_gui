@@ -9,16 +9,16 @@ Expert::Expert(QWidget *parent) :
 {   
     ui->setupUi(this);
 
-    this->rf_only          = new QEpicsPV("SOFB:OnlyRf");
-    this->debug_mode       = new QEpicsPV("SOFB:NoSetPv");
-    this->window_size      = new QEpicsPV("SOFB:MovAvg:WindowSize");
-    this->smoothing_factor = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
-    this->correctionStatus = new QEpicsPV("SOFB:CorrectionStatus");
+    this->rf_only           = new QEpicsPV("SOFB:OnlyRf");
+    this->debug_mode        = new QEpicsPV("SOFB:NoSetPv");
+    this->window_size       = new QEpicsPV("SOFB:MovAvg:WindowSize");
+    this->smoothing_factor  = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
+    this->correction_status = new QEpicsPV("SOFB:CorrectionStatus");
 
     QObject::connect(rf_only, SIGNAL(valueInited(const QVariant &)), this, SLOT(onRfOnlyInit(const QVariant &)));
     QObject::connect(debug_mode, SIGNAL(valueInited(const QVariant &)), this, SLOT(onDebugModeInit(const QVariant &)));
-    QObject::connect(correctionStatus, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
-    QObject::connect(correctionStatus, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
+    QObject::connect(correction_status, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
+    QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
 
     CONNECT_CLOSE_BUTTON;
 }

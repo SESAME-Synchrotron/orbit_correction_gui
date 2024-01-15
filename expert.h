@@ -38,7 +38,7 @@ private:
     QEpicsPV* window_size;
     QEpicsPV* smoothing_factor;
     QEpicsPV* avg_algo;
-    QEpicsPV* correctionStatus;
+    QEpicsPV* correction_status;
 };
 
 #endif // EXPERT_H

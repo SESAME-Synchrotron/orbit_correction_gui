@@ -239,7 +239,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>151</y>
       <width>190</width>
       <height>20</height>
      </rect>
@@ -252,7 +252,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>144</y>
+      <y>165</y>
       <width>190</width>
       <height>20</height>
      </rect>
@@ -265,7 +265,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>145</y>
+      <y>166</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -281,7 +281,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>129</y>
+      <y>150</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -291,6 +291,62 @@ QGroupBox::title {
     </property>
     <property name="variable" stdset="0">
      <string>SOFB:OnlyRf</string>
+    </property>
+   </widget>
+   <widget class="QENumericEdit" name="smoothingFactor_2">
+    <property name="geometry">
+     <rect>
+      <x>179</x>
+      <y>130</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="variable" stdset="0">
+     <string>SOFB:RegularizationParam</string>
+    </property>
+    <property name="autoScale">
+     <bool>false</bool>
+    </property>
+    <property name="leadingZeros">
+     <number>1</number>
+    </property>
+    <property name="precision">
+     <number>3</number>
+    </property>
+    <property name="minimum">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>10.000000000000000</double>
+    </property>
+    <property name="writeOnEnter">
+     <bool>false</bool>
+    </property>
+    <property name="writeOnFinish">
+     <bool>false</bool>
+    </property>
+    <property name="writeOnChange">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblRfOnly_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>166</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Regularization Parameter</string>
     </property>
    </widget>
   </widget>

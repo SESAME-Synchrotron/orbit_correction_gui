@@ -73,6 +73,7 @@ private:
     QEpicsPV* correctionStatus;
     QEpicsPV* include_rf;
     QEpicsPV* apply_regularization;
+    QEpicsPV* regularization_Param;
 
     /*Expert References*/
     QEpicsPV* rf_only;
