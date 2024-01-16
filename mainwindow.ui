@@ -7,63 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1402</width>
-    <height>649</height>
+    <height>913</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Orbit Correction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QEPlot" name="pltdiVsCorrectors">
-    <property name="geometry">
-     <rect>
-      <x>462</x>
-      <y>11</y>
-      <width>450</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variableAsToolTip">
-     <bool>false</bool>
-    </property>
-    <property name="allowDrop">
-     <bool>false</bool>
-    </property>
-    <property name="variable1" stdset="0">
-     <string>SOFB:Delta:I</string>
-    </property>
-    <property name="xUnit">
-     <string>Corrector Number</string>
-    </property>
-    <property name="yUnit">
-     <string>Δ I</string>
-    </property>
-   </widget>
-   <widget class="QEPlot" name="pltdposVsBpms">
-    <property name="geometry">
-     <rect>
-      <x>462</x>
-      <y>271</y>
-      <width>450</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable1" stdset="0">
-     <string>SOFB:Delta:Pos</string>
-    </property>
-    <property name="xUnit">
-     <string>BPM Number</string>
-    </property>
-    <property name="yUnit">
-     <string>Δ position</string>
-    </property>
-   </widget>
    <widget class="QScrollArea" name="scrollAreaLogs">
     <property name="geometry">
      <rect>
@@ -602,7 +552,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>590</y>
+      <y>850</y>
       <width>1387</width>
       <height>48</height>
      </rect>
@@ -653,30 +603,11 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
-   <widget class="QEPlot" name="pltdRfVsSamplesOverTime">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>270</y>
-      <width>450</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="variable1" stdset="0">
-     <string>SOFB:Delta:RF</string>
-    </property>
-    <property name="yUnit">
-     <string>Δ RF</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="lblCurrentIterationHead">
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>560</y>
+      <y>600</y>
       <width>70</width>
       <height>20</height>
      </rect>
@@ -689,7 +620,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>87</x>
-      <y>560</y>
+      <y>600</y>
       <width>96</width>
       <height>20</height>
      </rect>
@@ -705,7 +636,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>560</y>
+      <y>600</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -730,7 +661,7 @@ QGroupBox::title {
    <widget class="QELabel" name="movAvgErr">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>191</x>
       <y>530</y>
       <width>90</width>
       <height>20</height>
@@ -749,7 +680,7 @@ QGroupBox::title {
    <widget class="QLabel" name="lblMovAvgErrUnit">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>281</x>
       <y>530</y>
       <width>30</width>
       <height>20</height>
@@ -759,33 +690,551 @@ QGroupBox::title {
      <string>µm</string>
     </property>
    </widget>
-   <widget class="QEPlot" name="pltdiVsCorrectors_2">
+   <widget class="QLabel" name="lblMovAvgErrX">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>550</y>
+      <width>174</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Moving Average Error in X</string>
+    </property>
+   </widget>
+   <widget class="QELabel" name="movAvgErrX">
+    <property name="geometry">
+     <rect>
+      <x>191</x>
+      <y>550</y>
+      <width>90</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="variable" stdset="0">
+     <string>SOFB:MovAvg:Err:X</string>
+    </property>
+    <property name="precision">
+     <number>7</number>
+    </property>
+    <property name="useDbPrecision">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMovAvgErrUnitX">
+    <property name="geometry">
+     <rect>
+      <x>281</x>
+      <y>550</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>µm</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMovAvgErrY">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>570</y>
+      <width>174</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Moving Average Error in Y</string>
+    </property>
+   </widget>
+   <widget class="QELabel" name="movAvgErrY">
+    <property name="geometry">
+     <rect>
+      <x>191</x>
+      <y>570</y>
+      <width>90</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="variable" stdset="0">
+     <string>SOFB:MovAvg:Err:Y</string>
+    </property>
+    <property name="precision">
+     <number>7</number>
+    </property>
+    <property name="useDbPrecision">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMovAvgErrUnitY">
+    <property name="geometry">
+     <rect>
+      <x>281</x>
+      <y>570</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>µm</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>290</y>
+      <width>450</width>
+      <height>274</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="ltPltdRfVsSamplesOverTime">
+     <item>
+      <widget class="QEPlotter" name="pltdRfVsSamplesOverTime">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>100.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:Delta:RF</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaRF">
+       <property name="text">
+        <string>Δ RF vs Sample Number</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
       <x>940</x>
       <y>10</y>
       <width>450</width>
-      <height>240</height>
+      <height>269</height>
      </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+    <layout class="QVBoxLayout" name="ltPltSingularValues">
+     <item>
+      <widget class="QEPlotter" name="pltSingularValues">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>65.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:SingularValues</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblSingularValues">
+       <property name="text">
+        <string>Singular Values Vs Index</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>450</width>
+      <height>269</height>
+     </rect>
     </property>
-    <property name="variableAsToolTip">
-     <bool>false</bool>
+    <layout class="QVBoxLayout" name="ltPltdiVsCorrectors">
+     <item>
+      <widget class="QEPlotter" name="pltdiVsCorrectors">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>64.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:Delta:I</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaI">
+       <property name="text">
+        <string>Δ I vs Corrector Number</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>570</y>
+      <width>450</width>
+      <height>270</height>
+     </rect>
     </property>
-    <property name="allowDrop">
-     <bool>false</bool>
+    <layout class="QVBoxLayout" name="ltPltdposVsBpmsX">
+     <item>
+      <widget class="QEPlotter" name="pltdposVsBpmsX">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>48.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:Delta:Pos</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaPosX">
+       <property name="text">
+        <string>Δ position Vs BPM Number in X</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>570</y>
+      <width>450</width>
+      <height>270</height>
+     </rect>
     </property>
-    <property name="variable1" stdset="0">
-     <string>SOFB:SingularValues</string>
+    <layout class="QVBoxLayout" name="ltPltdposVsBpmsY">
+     <item>
+      <widget class="QEPlotter" name="pltdposVsBpmsY">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMinimum">
+        <double>48.000000000000000</double>
+       </property>
+       <property name="xMaximum">
+        <double>96.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:Delta:Pos</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaPosY">
+       <property name="text">
+        <string>Δ position Vs BPM Number in Y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>290</y>
+      <width>450</width>
+      <height>269</height>
+     </rect>
     </property>
-    <property name="xUnit">
-     <string>Index</string>
-    </property>
-    <property name="yUnit">
-     <string>Singular Value</string>
-    </property>
+    <layout class="QVBoxLayout" name="ltPltdposVsBpms">
+     <item>
+      <widget class="QEPlotter" name="pltdposVsBpms">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>96.000000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:Delta:Pos</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaPos">
+       <property name="text">
+        <string>Δ position Vs BPM Number</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
@@ -811,9 +1260,9 @@ QGroupBox::title {
    <header>QENumericEdit.h</header>
   </customwidget>
   <customwidget>
-   <class>QEPlot</class>
+   <class>QEPlotter</class>
    <extends>QEFrame</extends>
-   <header>QEPlot.h</header>
+   <header>QEPlotter.h</header>
   </customwidget>
   <customwidget>
    <class>QESimpleShape</class>
