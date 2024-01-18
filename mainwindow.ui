@@ -694,7 +694,7 @@ QGroupBox::title {
      </rect>
     </property>
     <property name="text">
-     <string>µm</string>
+     <string>mm</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblMovAvgErrX">
@@ -739,7 +739,7 @@ QGroupBox::title {
      </rect>
     </property>
     <property name="text">
-     <string>µm</string>
+     <string>mm</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblMovAvgErrY">
@@ -784,7 +784,7 @@ QGroupBox::title {
      </rect>
     </property>
     <property name="text">
-     <string>µm</string>
+     <string>mm</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget_2">
