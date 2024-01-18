@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1402</width>
-    <height>913</height>
+    <width>1265</width>
+    <height>974</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>271</y>
-      <width>431</width>
-      <height>241</height>
+      <y>615</y>
+      <width>790</width>
+      <height>298</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -34,8 +34,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>429</width>
-       <height>239</height>
+       <width>788</width>
+       <height>296</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -552,8 +552,8 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>850</y>
-      <width>1387</width>
+      <y>920</y>
+      <width>1246</width>
       <height>48</height>
      </rect>
     </property>
@@ -578,6 +578,13 @@ QGroupBox::title {
       <widget class="QPushButton" name="btnExpert">
        <property name="text">
         <string>Expert</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnHistoryLogs">
+       <property name="text">
+        <string>History Logs</string>
        </property>
       </widget>
      </item>
@@ -607,7 +614,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>600</y>
+      <y>260</y>
       <width>70</width>
       <height>20</height>
      </rect>
@@ -620,7 +627,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>87</x>
-      <y>600</y>
+      <y>260</y>
       <width>96</width>
       <height>20</height>
      </rect>
@@ -636,7 +643,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>600</y>
+      <y>260</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -649,7 +656,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>530</y>
+      <y>290</y>
       <width>150</width>
       <height>20</height>
      </rect>
@@ -662,7 +669,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>191</x>
-      <y>530</y>
+      <y>290</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -681,7 +688,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>281</x>
-      <y>530</y>
+      <y>290</y>
       <width>30</width>
       <height>20</height>
      </rect>
@@ -694,7 +701,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>550</y>
+      <y>310</y>
       <width>174</width>
       <height>20</height>
      </rect>
@@ -707,7 +714,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>191</x>
-      <y>550</y>
+      <y>310</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -726,7 +733,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>281</x>
-      <y>550</y>
+      <y>310</y>
       <width>30</width>
       <height>20</height>
      </rect>
@@ -739,7 +746,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>570</y>
+      <y>330</y>
       <width>174</width>
       <height>20</height>
      </rect>
@@ -752,7 +759,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>191</x>
-      <y>570</y>
+      <y>330</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -771,7 +778,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>281</x>
-      <y>570</y>
+      <y>330</y>
       <width>30</width>
       <height>20</height>
      </rect>
@@ -783,10 +790,10 @@ QGroupBox::title {
    <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>290</y>
+      <x>804</x>
+      <y>9</y>
       <width>450</width>
-      <height>274</height>
+      <height>296</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="ltPltdRfVsSamplesOverTime">
@@ -863,10 +870,10 @@ QGroupBox::title {
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>10</y>
+      <x>804</x>
+      <y>615</y>
       <width>450</width>
-      <height>269</height>
+      <height>296</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="ltPltSingularValues">
@@ -943,10 +950,10 @@ QGroupBox::title {
    <widget class="QWidget" name="layoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>10</y>
+      <x>334</x>
+      <y>9</y>
       <width>450</width>
-      <height>269</height>
+      <height>296</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="ltPltdiVsCorrectors">
@@ -1020,13 +1027,82 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="lblCurrentUnit_2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>371</y>
+      <width>43</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>A</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCorrectorMinorAlarmLimit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>139</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Max. Current Change</string>
+    </property>
+   </widget>
+   <widget class="QENumericEdit" name="currentAlarmHighLimit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>370</y>
+      <width>108</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="variable" stdset="0">
+     <string/>
+    </property>
+    <property name="autoScale">
+     <bool>false</bool>
+    </property>
+    <property name="leadingZeros">
+     <number>1</number>
+    </property>
+    <property name="precision">
+     <number>4</number>
+    </property>
+    <property name="minimum">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>9.999900000000000</double>
+    </property>
+    <property name="addUnits">
+     <bool>false</bool>
+    </property>
+    <property name="writeOnEnter">
+     <bool>false</bool>
+    </property>
+    <property name="writeOnChange">
+     <bool>true</bool>
+    </property>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>570</y>
+      <x>334</x>
+      <y>312</y>
       <width>450</width>
-      <height>270</height>
+      <height>296</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="ltPltdposVsBpmsX">
@@ -1054,7 +1130,7 @@ QGroupBox::title {
         <double>48.000000000000000</double>
        </property>
        <property name="DataVariableA" stdset="0">
-        <string>SOFB:Delta:Pos</string>
+        <string>SOFB:Delta:Pos:X</string>
        </property>
        <property name="DataVariableB" stdset="0">
         <string/>
@@ -1103,10 +1179,10 @@ QGroupBox::title {
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>570</y>
+      <x>804</x>
+      <y>312</y>
       <width>450</width>
-      <height>270</height>
+      <height>296</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="ltPltdposVsBpmsY">
@@ -1131,13 +1207,13 @@ QGroupBox::title {
         <bool>true</bool>
        </property>
        <property name="xMinimum">
-        <double>48.000000000000000</double>
+        <double>0.000000000000000</double>
        </property>
        <property name="xMaximum">
-        <double>96.000000000000000</double>
+        <double>48.000000000000000</double>
        </property>
        <property name="DataVariableA" stdset="0">
-        <string>SOFB:Delta:Pos</string>
+        <string>SOFB:Delta:Pos:Y</string>
        </property>
        <property name="DataVariableB" stdset="0">
         <string/>
@@ -1148,86 +1224,6 @@ QGroupBox::title {
       <widget class="QLabel" name="lblDeltaPosY">
        <property name="text">
         <string>Δ position Vs BPM Number in Y</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>290</y>
-      <width>450</width>
-      <height>269</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="ltPltdposVsBpms">
-     <item>
-      <widget class="QEPlotter" name="pltdposVsBpms">
-       <property name="enableEditPv">
-        <bool>false</bool>
-       </property>
-       <property name="enableContextMenu" stdset="0">
-        <bool>true</bool>
-       </property>
-       <property name="toolBarIsVisible" stdset="0">
-        <bool>false</bool>
-       </property>
-       <property name="pvItemsIsVisible" stdset="0">
-        <bool>false</bool>
-       </property>
-       <property name="statusIsVisible" stdset="0">
-        <bool>false</bool>
-       </property>
-       <property name="axisEnableX">
-        <bool>true</bool>
-       </property>
-       <property name="xMaximum">
-        <double>96.000000000000000</double>
-       </property>
-       <property name="DataVariableA" stdset="0">
-        <string>SOFB:Delta:Pos</string>
-       </property>
-       <property name="DataVariableB" stdset="0">
-        <string/>
-       </property>
-       <property name="AliasNameX" stdset="0">
-        <string/>
-       </property>
-       <property name="AliasNameA" stdset="0">
-        <string/>
-       </property>
-       <property name="aliasNames" stdset="0">
-        <stringlist>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-         <string></string>
-        </stringlist>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lblDeltaPos">
-       <property name="text">
-        <string>Δ position Vs BPM Number</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

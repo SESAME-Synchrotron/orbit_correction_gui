@@ -12,6 +12,7 @@ TARGET = $$(HOME)/bin/orbit-qt
 SOURCES += \
     client.cpp \
     expert.cpp \
+    logs.cpp \
     macros.cpp \
     main.cpp \
     mainwindow.cpp
@@ -19,11 +20,13 @@ SOURCES += \
 HEADERS += \
     client.h \
     expert.h \
+    logs.h \
     macros.h \
     mainwindow.h
 
 FORMS += \
     expert.ui \
+    logs.ui \
     mainwindow.ui
 
 # Default rules for deployment.

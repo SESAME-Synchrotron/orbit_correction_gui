@@ -6,6 +6,7 @@
 
 #include <qepicspv.h>
 #include "expert.h"
+#include "logs.h"
 #include "client.h"
 #include "macros.h"
 
@@ -52,6 +53,8 @@ private slots:
 
     void logData();
 
+    void on_btnHistoryLogs_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -67,10 +70,11 @@ private:
     QEpicsPV* energy;
     QEpicsPV* num_iterations;
     QEpicsPV* num_singular_values;
+    QEpicsPV* correction_factor;
     QEpicsPV* max_frequency_change;
     QEpicsPV* max_current_change;
     QEpicsPV* max_read_fail;
-    QEpicsPV* correctionStatus;
+    QEpicsPV* correction_status;
     QEpicsPV* include_rf;
     QEpicsPV* apply_regularization;
     QEpicsPV* regularization_Param;
@@ -85,5 +89,6 @@ private:
     /*End Averaging Expert*/
 
     Expert* expert;
+    Logs* historyLogs;
 };
 #endif // MAINWINDOW_H

@@ -12,10 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
     this->energy               = new QEpicsPV("SOFB:EnergyLevel");
     this->num_iterations       = new QEpicsPV("SOFB:NumIterations");
     this->num_singular_values  = new QEpicsPV("SOFB:NumSingularVals");
+    this->correction_factor    = new QEpicsPV("SOFB:CorrectionFactor");
     this->max_frequency_change = new QEpicsPV("SOFB:MaxFreqChange");
     this->max_current_change   = new QEpicsPV("SOFB:MaxCurrentChange");
     this->max_read_fail        = new QEpicsPV("SOFB:MaxReadFail");
-    this->correctionStatus     = new QEpicsPV("SOFB:CorrectionStatus");
+    this->correction_status    = new QEpicsPV("SOFB:CorrectionStatus");
     this->include_rf           = new QEpicsPV("SOFB:IncludeRf");
     this->apply_regularization = new QEpicsPV("SOFB:ApplyRegularization");
     this->rf_only              = new QEpicsPV("SOFB:OnlyRf");
@@ -36,11 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(num_iterations, SIGNAL(valueInited(const QVariant &)), this, SLOT(onNumIterationsInit(const QVariant &)));
     QObject::connect(include_rf, SIGNAL(valueInited(const QVariant &)), this, SLOT(onIncludeRfInit(const QVariant &)));
     QObject::connect(apply_regularization, SIGNAL(valueInited(const QVariant &)), this, SLOT(onApplyRegularizationInit(const QVariant &)));
-    QObject::connect(correctionStatus, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
-    QObject::connect(correctionStatus, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
+    QObject::connect(correction_status, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
+    QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(logData()));
 
     this->expert = NULL;
+    this->historyLogs = NULL;
 
     CONNECT_CLOSE_BUTTON;
 }
@@ -108,6 +110,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-energy" << energyLevels[this->energy->get().toInt()];
     params << "-num_iter" << QString::number(correction_iterations);
     params << "-num_singular" << num_singular_values->get().toString();
+    params << "-correction_factor" << correction_factor->get().toString();
     params << "-max_freq_change" << max_frequency_change->get().toString();
     params << "-max_curr_change" << max_current_change->get().toString();
     params << "-max_read_fail" << max_read_fail->get().toString();
@@ -261,4 +264,9 @@ void MainWindow::logData()
     QString content = in.readAll();
     this->ui->lblLogs->setText(content);
     logFile->seek(0);
+}
+
+void MainWindow::on_btnHistoryLogs_clicked()
+{
+    OPEN_UI(historyLogs, Logs, this);
 }
