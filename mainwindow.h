@@ -80,6 +80,7 @@ private:
     QEpicsPV* include_rf;
     QEpicsPV* apply_regularization;
     QEpicsPV* regularization_Param;
+    QEpicsPV* sampling_frequency;
     QEpicsPV* movAvgErrX;
 
     /*Expert References*/

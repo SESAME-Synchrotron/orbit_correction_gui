@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->ui->numIterations->setEnabled(false);
 
+    this->sampling_frequency   = new QEpicsPV("SOFB:SamplingFrequency");
     this->energy               = new QEpicsPV("SOFB:EnergyLevel");
     this->num_iterations       = new QEpicsPV("SOFB:NumIterations");
     this->num_singular_values  = new QEpicsPV("SOFB:NumSingularVals");
@@ -112,6 +113,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     QStringList energyLevels = this->energy->getEnum();
     QStringList movAvgAlgos = this->avg_algo->getEnum();
     QStringList params;
+    params << "-sampling_freq" << sampling_frequency->get().toString();
     params << "-energy" << energyLevels[this->energy->get().toInt()];
     params << "-num_iter" << QString::number(correction_iterations);
     params << "-num_singular" << num_singular_values->get().toString();
