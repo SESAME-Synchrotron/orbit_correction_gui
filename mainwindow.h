@@ -55,6 +55,8 @@ private slots:
 
     void on_btnHistoryLogs_clicked();
 
+    void checkRfOnlyRun();
+
 private:
     Ui::MainWindow *ui;
 
@@ -78,6 +80,7 @@ private:
     QEpicsPV* include_rf;
     QEpicsPV* apply_regularization;
     QEpicsPV* regularization_Param;
+    QEpicsPV* movAvgErrX;
 
     /*Expert References*/
     QEpicsPV* rf_only;

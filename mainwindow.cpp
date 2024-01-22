@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
     this->regularization_Param = new QEpicsPV("SOFB:RegularizationParam");
+    this->movAvgErrX           = new QEpicsPV("SOFB:MovAvg:Err:X");
 
     this->correction_process = new QProcess();
     this->base_path = "/home/control/Documents/sofb/orbit_correction/";
@@ -39,6 +40,10 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(apply_regularization, SIGNAL(valueInited(const QVariant &)), this, SLOT(onApplyRegularizationInit(const QVariant &)));
     QObject::connect(correction_status, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
     QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
+    QObject::connect(rf_only, SIGNAL(valueInited(const QVariant &)), this, SLOT(checkRfOnlyRun()));
+    QObject::connect(rf_only, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
+    QObject::connect(movAvgErrX, SIGNAL(valueInited(const QVariant &)), this, SLOT(checkRfOnlyRun()));
+    QObject::connect(movAvgErrX, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(logData()));
 
     this->expert = NULL;
@@ -269,4 +274,12 @@ void MainWindow::logData()
 void MainWindow::on_btnHistoryLogs_clicked()
 {
     OPEN_UI(historyLogs, Logs, this);
+}
+
+void MainWindow::checkRfOnlyRun()
+{
+    if (fabs(movAvgErrX->get().toDouble()) > 0.05 || rf_only->get().toBool())
+        this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #edd400; color: #000000; }");
+    else
+        this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #e0eee0; color: #000000; }");
 }

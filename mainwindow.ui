@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1265</width>
+    <width>1269</width>
     <height>974</height>
    </rect>
   </property>
@@ -790,8 +790,8 @@ QGroupBox::title {
    <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>804</x>
-      <y>9</y>
+      <x>805</x>
+      <y>7</y>
       <width>450</width>
       <height>296</height>
      </rect>
@@ -950,8 +950,8 @@ QGroupBox::title {
    <widget class="QWidget" name="layoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>334</x>
-      <y>9</y>
+      <x>335</x>
+      <y>7</y>
       <width>450</width>
       <height>296</height>
      </rect>
@@ -1027,80 +1027,3321 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="lblCurrentUnit_2">
+   <widget class="QGroupBox" name="groupBoxHorizontalCorrectorsAlarms">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>371</y>
-      <width>43</width>
-      <height>20</height>
+      <x>5</x>
+      <y>400</y>
+      <width>327</width>
+      <height>71</height>
      </rect>
     </property>
-    <property name="text">
-     <string>A</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
+    <property name="title">
+     <string>Horizontal Correctors Alarms</string>
+    </property>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>17</y>
+       <width>316</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=01,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_2">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=01,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_3">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=02,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_4">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=02,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_5">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=03,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_9">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=03,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_8">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=04,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_7">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=04,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_13">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=05,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_16">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=05,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_15">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=06,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_14">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=06,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_10">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=07,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_6">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=07,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_12">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=08,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_11">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=08,Index=2</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_28">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=09,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_24">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=09,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_23">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=10,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_30">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=10,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_20">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=11,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_18">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=11,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_19">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=12,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_26">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=12,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_22">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=13,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_17">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=13,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_25">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=14,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_31">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=14,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_21">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=15,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_29">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=15,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_27">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=16,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_32">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=16,Index=2</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <widget class="QLabel" name="lblCorrectorMinorAlarmLimit">
+   <widget class="QGroupBox" name="groupBoxVerticalCorrectorsAlarms">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
-      <width>139</width>
-      <height>20</height>
+      <x>5</x>
+      <y>472</y>
+      <width>327</width>
+      <height>71</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Max. Current Change</string>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
     </property>
-   </widget>
-   <widget class="QENumericEdit" name="currentAlarmHighLimit">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>370</y>
-      <width>108</width>
-      <height>20</height>
-     </rect>
+    <property name="title">
+     <string>Vertical Correctors Alarms</string>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>20</height>
-     </size>
-    </property>
-    <property name="variable" stdset="0">
-     <string/>
-    </property>
-    <property name="autoScale">
-     <bool>false</bool>
-    </property>
-    <property name="leadingZeros">
-     <number>1</number>
-    </property>
-    <property name="precision">
-     <number>4</number>
-    </property>
-    <property name="minimum">
-     <double>0.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>9.999900000000000</double>
-    </property>
-    <property name="addUnits">
-     <bool>false</bool>
-    </property>
-    <property name="writeOnEnter">
-     <bool>false</bool>
-    </property>
-    <property name="writeOnChange">
-     <bool>true</bool>
-    </property>
+    <widget class="QWidget" name="layoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>17</y>
+       <width>318</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_33">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=01,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_34">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=01,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_35">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=02,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_36">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=02,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_37">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=03,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_38">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=03,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_39">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=04,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_40">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=04,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_41">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=05,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_42">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=05,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_43">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=06,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_44">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=06,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_45">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=07,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_46">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=07,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_47">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=08,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_48">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=08,Index=2</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_49">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=09,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_50">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=09,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_51">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=10,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_52">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=10,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_53">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=11,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_54">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=11,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_55">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=12,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_56">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=12,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_57">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=13,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_58">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=13,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_59">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=14,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_60">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=14,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_61">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=15,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_62">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=15,Index=2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_63">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=16,Index=1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QESimpleShape" name="ledCorrectorAlarm_64">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="colour0" stdset="0">
+           <color>
+            <red>186</red>
+            <green>189</green>
+            <blue>182</blue>
+           </color>
+          </property>
+          <property name="colour1" stdset="0">
+           <color>
+            <red>237</red>
+            <green>212</green>
+            <blue>0</blue>
+           </color>
+          </property>
+          <property name="colour2" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="colour3" stdset="0">
+           <color>
+            <red>240</red>
+            <green>5</green>
+            <blue>5</blue>
+           </color>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+          </property>
+          <property name="variableSubstitutions" stdset="0">
+           <string>CellNum=16,Index=2</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>334</x>
-      <y>312</y>
+      <x>335</x>
+      <y>310</y>
       <width>450</width>
       <height>296</height>
      </rect>
@@ -1179,8 +4420,8 @@ QGroupBox::title {
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>804</x>
-      <y>312</y>
+      <x>805</x>
+      <y>310</y>
       <width>450</width>
       <height>296</height>
      </rect>
