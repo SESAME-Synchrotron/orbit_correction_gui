@@ -10,24 +10,35 @@ TARGET = $$(HOME)/bin/orbit-qt
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    circularbuffer.cpp \
     client.cpp \
     expert.cpp \
+    horizontalcorrectors.cpp \
     logs.cpp \
     macros.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plots.cpp \
+    verticalcorrectors.cpp
 
 HEADERS += \
+    circularbuffer.h \
     client.h \
     expert.h \
+    horizontalcorrectors.h \
     logs.h \
     macros.h \
-    mainwindow.h
+    mainwindow.h \
+    plots.h \
+    verticalcorrectors.h
 
 FORMS += \
     expert.ui \
+    horizontalcorrectors.ui \
     logs.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    plots.ui \
+    verticalcorrectors.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

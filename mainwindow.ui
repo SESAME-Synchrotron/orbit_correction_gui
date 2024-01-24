@@ -361,7 +361,7 @@ padding: 5px;</string>
       <x>262</x>
       <y>11</y>
       <width>45</width>
-      <height>122</height>
+      <height>126</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -589,6 +589,13 @@ QGroupBox::title {
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="btnPlots">
+       <property name="text">
+        <string>Plots</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -632,6 +639,9 @@ QGroupBox::title {
       <height>20</height>
      </rect>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
     <property name="variable" stdset="0">
      <string>SOFB:IterationNumber</string>
     </property>
@@ -650,141 +660,6 @@ QGroupBox::title {
     </property>
     <property name="text">
      <string>out of &lt;MAX&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErr">
-    <property name="geometry">
-     <rect>
-      <x>13</x>
-      <y>290</y>
-      <width>150</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Moving Average Error</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="movAvgErr">
-    <property name="geometry">
-     <rect>
-      <x>191</x>
-      <y>290</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>SOFB:MovAvg:Err</string>
-    </property>
-    <property name="precision">
-     <number>7</number>
-    </property>
-    <property name="useDbPrecision">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErrUnit">
-    <property name="geometry">
-     <rect>
-      <x>281</x>
-      <y>290</y>
-      <width>30</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>mm</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErrX">
-    <property name="geometry">
-     <rect>
-      <x>13</x>
-      <y>310</y>
-      <width>174</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Moving Average Error in X</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="movAvgErrX">
-    <property name="geometry">
-     <rect>
-      <x>191</x>
-      <y>310</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>SOFB:MovAvg:Err:X</string>
-    </property>
-    <property name="precision">
-     <number>7</number>
-    </property>
-    <property name="useDbPrecision">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErrUnitX">
-    <property name="geometry">
-     <rect>
-      <x>281</x>
-      <y>310</y>
-      <width>30</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>mm</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErrY">
-    <property name="geometry">
-     <rect>
-      <x>13</x>
-      <y>330</y>
-      <width>174</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Moving Average Error in Y</string>
-    </property>
-   </widget>
-   <widget class="QELabel" name="movAvgErrY">
-    <property name="geometry">
-     <rect>
-      <x>191</x>
-      <y>330</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="variable" stdset="0">
-     <string>SOFB:MovAvg:Err:Y</string>
-    </property>
-    <property name="precision">
-     <number>7</number>
-    </property>
-    <property name="useDbPrecision">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblMovAvgErrUnitY">
-    <property name="geometry">
-     <rect>
-      <x>281</x>
-      <y>330</y>
-      <width>30</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>mm</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget_2">
@@ -819,6 +694,9 @@ QGroupBox::title {
        </property>
        <property name="xMaximum">
         <double>100.000000000000000</double>
+       </property>
+       <property name="yMaximum">
+        <double>0.001000000000000</double>
        </property>
        <property name="DataVariableA" stdset="0">
         <string>SOFB:Delta:RF</string>
@@ -858,7 +736,7 @@ QGroupBox::title {
      <item>
       <widget class="QLabel" name="lblDeltaRF">
        <property name="text">
-        <string>Δ RF vs Sample Number</string>
+        <string>Δ RF (MHz) vs Sample Number</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1018,7 +896,7 @@ QGroupBox::title {
      <item>
       <widget class="QLabel" name="lblDeltaI">
        <property name="text">
-        <string>Δ I vs Corrector Number</string>
+        <string>Δ I (A) vs Corrector Number</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1052,12 +930,12 @@ QGroupBox::title {
     <property name="title">
      <string>Horizontal Correctors Alarms</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>5</x>
        <y>17</y>
-       <width>316</width>
+       <width>324</width>
        <height>50</height>
       </rect>
      </property>
@@ -2712,7 +2590,7 @@ QGroupBox::title {
       <rect>
        <x>5</x>
        <y>17</y>
-       <width>318</width>
+       <width>324</width>
        <height>50</height>
       </rect>
      </property>
@@ -4337,7 +4215,7 @@ QGroupBox::title {
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>335</x>
@@ -4417,7 +4295,7 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>805</x>
@@ -4468,6 +4346,171 @@ QGroupBox::title {
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>286</width>
+      <height>102</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lblMovAvgErr">
+       <property name="text">
+        <string>Moving Average Error</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QELabel" name="movAvgErr">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MovAvg:Err</string>
+       </property>
+       <property name="precision">
+        <number>7</number>
+       </property>
+       <property name="useDbPrecision">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="lblMovAvgErrUnit">
+       <property name="text">
+        <string>mm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lblMovAvgErrX">
+       <property name="text">
+        <string>Moving Average Error in X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QELabel" name="movAvgErrX">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MovAvg:Err:X</string>
+       </property>
+       <property name="precision">
+        <number>7</number>
+       </property>
+       <property name="useDbPrecision">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="lblMovAvgErrUnitX">
+       <property name="text">
+        <string>mm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lblMovAvgErrY">
+       <property name="text">
+        <string>Moving Average Error in Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QELabel" name="movAvgErrY">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:MovAvg:Err:Y</string>
+       </property>
+       <property name="precision">
+        <number>7</number>
+       </property>
+       <property name="useDbPrecision">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="lblMovAvgErrUnitY">
+       <property name="text">
+        <string>mm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lblOrbitRmsX">
+       <property name="text">
+        <string>Orbit RMS X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QELabel" name="orbitRmsX">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SR-DI:getXOrbitRMS</string>
+       </property>
+       <property name="precision">
+        <number>7</number>
+       </property>
+       <property name="useDbPrecision">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="lblOrbitRmsXUnit">
+       <property name="text">
+        <string>mm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lblOrbitRmsY">
+       <property name="text">
+        <string>Orbit RMS Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QELabel" name="orbitRmsY">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SR-DI:getYOrbitRMS</string>
+       </property>
+       <property name="precision">
+        <number>7</number>
+       </property>
+       <property name="useDbPrecision">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLabel" name="lblOrbitRmsYUnit">
+       <property name="text">
+        <string>mm</string>
        </property>
       </widget>
      </item>

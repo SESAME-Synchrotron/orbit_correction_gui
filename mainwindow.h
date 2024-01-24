@@ -7,6 +7,7 @@
 #include <qepicspv.h>
 #include "expert.h"
 #include "logs.h"
+#include "plots.h"
 #include "client.h"
 #include "macros.h"
 
@@ -57,6 +58,8 @@ private slots:
 
     void checkRfOnlyRun();
 
+    void on_btnPlots_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -94,5 +97,6 @@ private:
 
     Expert* expert;
     Logs* historyLogs;
+    Plots* plots;
 };
 #endif // MAINWINDOW_H

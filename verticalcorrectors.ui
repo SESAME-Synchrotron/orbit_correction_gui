@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VerticalCorrectors</class>
+ <widget class="QMainWindow" name="VerticalCorrectors">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Vertical Correctors Plots</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>8</y>
+      <width>890</width>
+      <height>883</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QEPlot" name="qeplot">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC01-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC01-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC02-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC02-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC01 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC01 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC02 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC02 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QEPlot" name="qeplot_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC03-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC03-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC04-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC04-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC03 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC03 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC04 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC04 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QEPlot" name="qeplot_3">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC05-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC05-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC06-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC06-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC05 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC05 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC06 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC06 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QEPlot" name="qeplot_4">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC07-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC07-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC08-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC08-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC07 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC07 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC08 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC08 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QEPlot" name="qeplot_8">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC09-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC09-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC10-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC10-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC09 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC09 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC10 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC10 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QEPlot" name="qeplot_5">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC11-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC11-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC12-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC12-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC11 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC11 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC12 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC12 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QEPlot" name="qeplot_6">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC13-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC13-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC14-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC14-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC13 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC13 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC14 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC14 VC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QEPlot" name="qeplot_7">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC15-PS-VC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC15-PS-VC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC16-PS-VC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC16-PS-VC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC15 VC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC15 VC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC16 VC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC16 VC2</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QEPlot</class>
+   <extends>QEFrame</extends>
+   <header>QEPlot.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QEFrame</class>
+   <extends>QFrame</extends>
+   <header>QEFrame.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

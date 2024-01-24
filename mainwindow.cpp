@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->expert = NULL;
     this->historyLogs = NULL;
+    this->plots = NULL;
 
     CONNECT_CLOSE_BUTTON;
 }
@@ -284,4 +285,9 @@ void MainWindow::checkRfOnlyRun()
         this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #edd400; color: #000000; }");
     else
         this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #e0eee0; color: #000000; }");
+}
+
+void MainWindow::on_btnPlots_clicked()
+{
+    OPEN_UI(plots, Plots, this);
 }

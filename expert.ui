@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Orbit Correction Expert</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -405,7 +405,7 @@ QGroupBox::title {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="lblCorrectionPercentage_2">
+   <widget class="QLabel" name="lblSamplingFrequency">
     <property name="geometry">
      <rect>
       <x>12</x>
@@ -415,10 +415,10 @@ QGroupBox::title {
      </rect>
     </property>
     <property name="text">
-     <string>Sampling Frequency</string>
+     <string>Sampling Frequency (Hz)</string>
     </property>
    </widget>
-   <widget class="QENumericEdit" name="correctionPercentage_2">
+   <widget class="QENumericEdit" name="samplingFrequency">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -459,6 +459,19 @@ QGroupBox::title {
     </property>
     <property name="writeOnChange">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblRfOnlyUnit">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>200</y>
+      <width>40</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1 Hz</string>
     </property>
    </widget>
   </widget>
