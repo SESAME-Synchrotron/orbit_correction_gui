@@ -6,6 +6,8 @@ VerticalCorrectors::VerticalCorrectors(QWidget *parent) :
     ui(new Ui::VerticalCorrectors)
 {
     ui->setupUi(this);
+
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 VerticalCorrectors::~VerticalCorrectors()

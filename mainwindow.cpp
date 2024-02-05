@@ -1,10 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+#include "qdebug.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , thresholdFreq(100.0/1000000.0)
+    , remoteHost("dev.control@10.2.0.23")
 {
     ui->setupUi(this);
     this->ui->numIterations->setEnabled(false);
@@ -26,14 +29,15 @@ MainWindow::MainWindow(QWidget *parent)
     this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
     this->regularization_Param = new QEpicsPV("SOFB:RegularizationParam");
-    this->movAvgErrX           = new QEpicsPV("SOFB:MovAvg:Err:X");
+    this->getFrequency         = new QEpicsPV("BO-RF-SGN1:getFrequency");
 
     this->correction_process = new QProcess();
-    this->base_path = "/home/control/Documents/sofb/orbit_correction/";
+    this->logProcess = new QProcess();
+    this->base_path = "/home/dev.control/orbit-correction/";
     this->data_path = this->base_path + "data";
     this->logs_path = this->base_path + "logs";
     this->logFile = new QFile(this->logs_path + "/last_run.log");
-    this->timer = new QTimer(this);
+    this->loggingTimer = new QTimer(this);
 
     QObject::connect(correction_process, SIGNAL(finished(int)), this, SLOT(on_correctionEnd(int)));
     QObject::connect(num_iterations, SIGNAL(valueInited(const QVariant &)), this, SLOT(onNumIterationsInit(const QVariant &)));
@@ -43,9 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
     QObject::connect(rf_only, SIGNAL(valueInited(const QVariant &)), this, SLOT(checkRfOnlyRun()));
     QObject::connect(rf_only, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
-    QObject::connect(movAvgErrX, SIGNAL(valueInited(const QVariant &)), this, SLOT(checkRfOnlyRun()));
-    QObject::connect(movAvgErrX, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(logData()));
+    QObject::connect(getFrequency, SIGNAL(valueInited(const QVariant &)), this, SLOT(frequencyPvInit(const QVariant &)));
+    QObject::connect(getFrequency, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
+    QObject::connect(loggingTimer, SIGNAL(timeout()), this, SLOT(logDataSSH()));
 
     this->expert = NULL;
     this->historyLogs = NULL;
@@ -146,7 +150,15 @@ void MainWindow::on_btnStartCorrection_clicked()
     //{
     //    std::cout << param.toStdString() << " ";
     //}
-    correction_process->start("sofb", params);
+
+    QStringList sshArgs;
+    sshArgs << remoteHost << "sofb" << params;
+    correction_process->setProgram("ssh");
+    correction_process->setArguments(sshArgs);
+
+    if (!correction_process->startDetached()) {
+        std::cout << "Error: Unable to start Correction\n";
+    }
 }
 
 void MainWindow::print_stdout()
@@ -163,7 +175,16 @@ void MainWindow::on_btnStopCorrection_clicked()
 {
     QString processName = "sofb$";
     QProcess pkillProcess;
-    pkillProcess.start("pkill", QStringList() << processName);
+    //pkillProcess.start("pkill", QStringList() << processName);
+
+    QStringList sshArgs;
+    sshArgs << remoteHost << "pkill" << processName;
+    pkillProcess.setProgram("ssh");
+    pkillProcess.setArguments(sshArgs);
+
+    if (!pkillProcess.startDetached()) {
+        std::cout << "Error: Unable to stop Correction\n";
+    }
     pkillProcess.waitForFinished();
 
     if (pkillProcess.exitCode() != 0)
@@ -222,7 +243,7 @@ void MainWindow::onCorrectionStatusInit(const QVariant &status)
     {
         ui->btnStartCorrection->setEnabled(false);
         ui->btnStopCorrection->setEnabled(false);
-        startLogging();
+        this->loggingTimer->start(500);
         disableInputs();
     }
 }
@@ -238,14 +259,14 @@ void MainWindow::onCorrectionStatusChanged(const QVariant &status)
         ui->btnStartCorrection->setEnabled(true);
         ui->btnStopCorrection->setEnabled(false);
         enableInputs();
-        //this->timer->stop();
-        //if (logFile->isOpen())
-        //    logFile->close();
+        this->loggingTimer->stop();
+        if (logFile->isOpen())
+            logFile->close();
     } else if (status == running || status == debug)
     {
         ui->btnStartCorrection->setEnabled(false);
         ui->btnStopCorrection->setEnabled(true);
-        startLogging();
+        this->loggingTimer->start(500);
         disableInputs();
     }
 }
@@ -255,18 +276,18 @@ void MainWindow::on_btnExpert_clicked()
     OPEN_UI(expert, Expert, this);
 }
 
-void MainWindow::startLogging()
+void MainWindow::startLocalLogging()
 {
     if(!logFile->isOpen())
     {
       if(!logFile->open(QIODevice::ReadOnly))
           this->ui->lblLogs->setText("Warning: Could not read log file\n" + logFile->errorString());
       else
-          this->timer->start(500);
+          this->loggingTimer->start(500);
     }
 }
 
-void MainWindow::logData()
+void MainWindow::logLocalData()
 {
     QTextStream in(logFile);
     QString content = in.readAll();
@@ -274,17 +295,43 @@ void MainWindow::logData()
     logFile->seek(0);
 }
 
-void MainWindow::on_btnHistoryLogs_clicked()
+void MainWindow::logDataSSH()
 {
-    OPEN_UI(historyLogs, Logs, this);
+    QStringList sshArgs;
+    sshArgs << remoteHost << "cat" << this->logs_path + "/last_run.log";
+
+    logProcess->start("ssh", sshArgs);
+    if (logProcess->waitForFinished())
+    {
+        QString output = logProcess->readAll();
+        this->ui->lblLogs->setText(output);
+    } else {
+        std::cout << "SSH Command: ssh " << sshArgs.join(" ").toStdString() << std::endl;
+        std::cout << "SSH Exit Code: " << logProcess->exitCode()  << std::endl;
+        std::cout << "SSH Error: " << logProcess->errorString().toStdString() << std::endl;
+        std::cout << "Error: Unable to execute SSH command\n";
+    }
+}
+
+void MainWindow::frequencyPvInit(const QVariant& val)
+{
+    currentFreq = val.toDouble();
+    prevFreq = val.toDouble();
 }
 
 void MainWindow::checkRfOnlyRun()
 {
-    if (fabs(movAvgErrX->get().toDouble()) > 0.05 || rf_only->get().toBool())
-        this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #edd400; color: #000000; }");
+    currentFreq = getFrequency->get().toDouble();
+    if (fabs(currentFreq - prevFreq) > thresholdFreq || rf_only->get().toBool())
+        this->ui->ledRfOnly->setValue(1);
     else
-        this->ui->movAvgErrX->setStyleSheet("QWidget { background-color: #e0eee0; color: #000000; }");
+      this->ui->ledRfOnly->setValue(0);
+    prevFreq = currentFreq;
+}
+
+void MainWindow::on_btnHistoryLogs_clicked()
+{
+    OPEN_UI(historyLogs, Logs, this);
 }
 
 void MainWindow::on_btnPlots_clicked()

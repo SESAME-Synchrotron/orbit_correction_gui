@@ -6,6 +6,8 @@ HorizontalCorrectors::HorizontalCorrectors(QWidget *parent) :
     ui(new Ui::HorizontalCorrectors)
 {
     ui->setupUi(this);
+
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 HorizontalCorrectors::~HorizontalCorrectors()

@@ -50,27 +50,34 @@ private slots:
 
     void on_btnExpert_clicked();
 
-    void startLogging();
+    void startLocalLogging();
 
-    void logData();
+    void logLocalData();
+
+    void logDataSSH();
 
     void on_btnHistoryLogs_clicked();
 
     void checkRfOnlyRun();
+
+    void frequencyPvInit(const QVariant &);
 
     void on_btnPlots_clicked();
 
 private:
     Ui::MainWindow *ui;
 
+    const double thresholdFreq;
+    const QString remoteHost;
+
     bool inf_iterations;
+    double currentFreq, prevFreq;
 
     QString base_path;
     QString data_path;
     QString logs_path;
-    QProcess* correction_process;
     QFile* logFile;
-    QTimer* timer;
+    QTimer* loggingTimer;
 
     QEpicsPV* energy;
     QEpicsPV* num_iterations;
@@ -84,7 +91,7 @@ private:
     QEpicsPV* apply_regularization;
     QEpicsPV* regularization_Param;
     QEpicsPV* sampling_frequency;
-    QEpicsPV* movAvgErrX;
+    QEpicsPV* getFrequency;
 
     /*Expert References*/
     QEpicsPV* rf_only;
@@ -94,6 +101,9 @@ private:
     QEpicsPV* smoothing_factor;
     QEpicsPV* avg_algo;
     /*End Averaging Expert*/
+
+    QProcess* correction_process;
+    QProcess* logProcess;
 
     Expert* expert;
     Logs* historyLogs;

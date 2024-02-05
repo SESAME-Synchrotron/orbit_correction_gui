@@ -13,15 +13,15 @@ Plots::Plots(QWidget *parent) :
     {
         for(int j = 1; j <= 4; j++)
         {
-            this->xDataPVs.push_back(new QEpicsPV(QString::asprintf("SR-DI-LBR%d-bpm%d:getSlowAcquisitionXScale", i, j)));
-            this->yDataPVs.push_back(new QEpicsPV(QString::asprintf("SR-DI-LBR%d-bpm%d:getSlowAcquisitionYScale", i, j)));
+            this->xDataPVs.push_back(new QEpicsPV(QString::asprintf("SR-DI-LBR%d-bpm%d:getSlowAcquisitionXScale", i, j), this));
+            this->yDataPVs.push_back(new QEpicsPV(QString::asprintf("SR-DI-LBR%d-bpm%d:getSlowAcquisitionYScale", i, j), this));
             QObject::connect(this->xDataPVs[j + 4*(i-1) - 1], SIGNAL(valueChanged(QVariant)), this, SLOT(horizontalDataChanged()));
             QObject::connect(this->yDataPVs[j + 4*(i-1) - 1], SIGNAL(valueChanged(QVariant)), this, SLOT(verticalDataChanged()));
         }
     }
 
-    currentXOrbitRms = new QEpicsPV("SR-DI:getXOrbitRMS");
-    currentYOrbitRms = new QEpicsPV("SR-DI:getYOrbitRMS");
+    currentXOrbitRms = new QEpicsPV("SR-DI:getXOrbitRMS", this);
+    currentYOrbitRms = new QEpicsPV("SR-DI:getYOrbitRMS", this);
     QObject::connect(currentXOrbitRms, SIGNAL(valueChanged(const QVariant&)), this, SLOT(xRmsUpdated(const QVariant&)));
     QObject::connect(currentYOrbitRms, SIGNAL(valueChanged(const QVariant&)), this, SLOT(yRmsUpdated(const QVariant&)));
 
@@ -67,6 +67,8 @@ Plots::Plots(QWidget *parent) :
     this->horizontalCorrectors = NULL;
 
     CONNECT_CLOSE_BUTTON;
+
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 Plots::~Plots()

@@ -143,6 +143,9 @@ padding: 5px;</string>
        <property name="maximum">
         <double>9999.000000000000000</double>
        </property>
+       <property name="addUnits">
+        <bool>false</bool>
+       </property>
        <property name="writeOnEnter">
         <bool>false</bool>
        </property>
@@ -176,6 +179,9 @@ padding: 5px;</string>
        </property>
        <property name="maximum">
         <double>65.000000000000000</double>
+       </property>
+       <property name="addUnits">
+        <bool>false</bool>
        </property>
        <property name="writeOnEnter">
         <bool>false</bool>
@@ -456,7 +462,7 @@ padding: 5px;</string>
       <x>11</x>
       <y>171</y>
       <width>290</width>
-      <height>22</height>
+      <height>27</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -483,7 +489,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>221</y>
+      <y>251</y>
       <width>309</width>
       <height>30</height>
      </rect>
@@ -621,7 +627,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>260</y>
+      <y>290</y>
       <width>70</width>
       <height>20</height>
      </rect>
@@ -634,7 +640,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>87</x>
-      <y>260</y>
+      <y>290</y>
       <width>96</width>
       <height>20</height>
      </rect>
@@ -653,7 +659,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>260</y>
+      <y>290</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -909,7 +915,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>400</y>
+      <y>430</y>
       <width>327</width>
       <height>71</height>
      </rect>
@@ -991,7 +997,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=01,Index=1</string>
@@ -1041,7 +1047,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=01,Index=2</string>
@@ -1091,7 +1097,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=02,Index=1</string>
@@ -1141,7 +1147,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=02,Index=2</string>
@@ -1191,7 +1197,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=03,Index=1</string>
@@ -1241,7 +1247,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=03,Index=2</string>
@@ -1291,7 +1297,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=04,Index=1</string>
@@ -1341,7 +1347,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=04,Index=2</string>
@@ -1391,7 +1397,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=05,Index=1</string>
@@ -1441,7 +1447,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=05,Index=2</string>
@@ -1491,7 +1497,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=06,Index=1</string>
@@ -1541,7 +1547,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=06,Index=2</string>
@@ -1591,7 +1597,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=07,Index=1</string>
@@ -1641,7 +1647,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=07,Index=2</string>
@@ -1691,7 +1697,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=08,Index=1</string>
@@ -1741,7 +1747,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=08,Index=2</string>
@@ -1798,7 +1804,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=09,Index=1</string>
@@ -1848,7 +1854,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=09,Index=2</string>
@@ -1898,7 +1904,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=10,Index=1</string>
@@ -1948,7 +1954,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=10,Index=2</string>
@@ -1998,7 +2004,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=11,Index=1</string>
@@ -2048,7 +2054,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=11,Index=2</string>
@@ -2098,7 +2104,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=12,Index=1</string>
@@ -2148,7 +2154,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=12,Index=2</string>
@@ -2198,7 +2204,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=13,Index=1</string>
@@ -2248,7 +2254,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=13,Index=2</string>
@@ -2298,7 +2304,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=14,Index=1</string>
@@ -2348,7 +2354,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=14,Index=2</string>
@@ -2398,7 +2404,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=15,Index=1</string>
@@ -2448,7 +2454,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=15,Index=2</string>
@@ -2498,7 +2504,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=16,Index=1</string>
@@ -2548,7 +2554,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-HC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-HC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=16,Index=2</string>
@@ -2564,7 +2570,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>472</y>
+      <y>502</y>
       <width>327</width>
       <height>71</height>
      </rect>
@@ -2646,7 +2652,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=01,Index=1</string>
@@ -2696,7 +2702,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=01,Index=2</string>
@@ -2746,7 +2752,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=02,Index=1</string>
@@ -2796,7 +2802,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=02,Index=2</string>
@@ -2846,7 +2852,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=03,Index=1</string>
@@ -2896,7 +2902,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=03,Index=2</string>
@@ -2946,7 +2952,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=04,Index=1</string>
@@ -2996,7 +3002,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=04,Index=2</string>
@@ -3046,7 +3052,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=05,Index=1</string>
@@ -3096,7 +3102,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=05,Index=2</string>
@@ -3146,7 +3152,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=06,Index=1</string>
@@ -3196,7 +3202,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=06,Index=2</string>
@@ -3246,7 +3252,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=07,Index=1</string>
@@ -3296,7 +3302,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=07,Index=2</string>
@@ -3346,7 +3352,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=08,Index=1</string>
@@ -3396,7 +3402,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=08,Index=2</string>
@@ -3453,7 +3459,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=09,Index=1</string>
@@ -3503,7 +3509,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=09,Index=2</string>
@@ -3553,7 +3559,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=10,Index=1</string>
@@ -3603,7 +3609,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=10,Index=2</string>
@@ -3653,7 +3659,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=11,Index=1</string>
@@ -3703,7 +3709,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=11,Index=2</string>
@@ -3753,7 +3759,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=12,Index=1</string>
@@ -3803,7 +3809,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=12,Index=2</string>
@@ -3853,7 +3859,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=13,Index=1</string>
@@ -3903,7 +3909,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=13,Index=2</string>
@@ -3953,7 +3959,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=14,Index=1</string>
@@ -4003,7 +4009,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=14,Index=2</string>
@@ -4053,7 +4059,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=15,Index=1</string>
@@ -4103,7 +4109,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=15,Index=2</string>
@@ -4153,7 +4159,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=16,Index=1</string>
@@ -4203,7 +4209,7 @@ QGroupBox::title {
            </color>
           </property>
           <property name="variable" stdset="0">
-           <string>SRC$(CellNum)-PS-VC$(Index):getIload:test.SEVR</string>
+           <string>SRC$(CellNum)-PS-VC$(Index):getIload.SEVR</string>
           </property>
           <property name="variableSubstitutions" stdset="0">
            <string>CellNum=16,Index=2</string>
@@ -4351,13 +4357,13 @@ QGroupBox::title {
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
-      <width>286</width>
-      <height>102</height>
+      <y>320</y>
+      <width>315</width>
+      <height>112</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -4511,6 +4517,43 @@ QGroupBox::title {
       <widget class="QLabel" name="lblOrbitRmsYUnit">
        <property name="text">
         <string>mm</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>198</y>
+      <width>207</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <item>
+      <widget class="QLabel" name="lblRfOnly">
+       <property name="text">
+        <string>RF Only</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSimpleShape" name="ledRfOnly">
+       <property name="colour0" stdset="0">
+        <color>
+         <red>186</red>
+         <green>189</green>
+         <blue>182</blue>
+        </color>
+       </property>
+       <property name="colour1" stdset="0">
+        <color>
+         <red>237</red>
+         <green>212</green>
+         <blue>0</blue>
+        </color>
        </property>
       </widget>
      </item>

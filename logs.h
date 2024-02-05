@@ -2,6 +2,7 @@
 #define LOGS_H
 
 #include <QMainWindow>
+#include <QProcess>
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qfiledialog.h>
@@ -21,6 +22,8 @@ public:
 
 private:
     Ui::Logs *ui;
+
+    const QString remoteHost;
 
     QString base_path;
     QString logs_path;

@@ -19,39 +19,39 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>880</width>
-      <height>880</height>
+      <width>906</width>
+      <height>860</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QEPlot" name="qeplot">
+     <item row="2" column="0">
+      <widget class="QEPlot" name="qeplot_8">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="variable1" stdset="0">
-        <string>SRC01-PS-HC1:getIload</string>
+        <string>SRC09-PS-HC1:getIload</string>
        </property>
        <property name="variable2" stdset="0">
-        <string>SRC01-PS-HC2:getIload</string>
+        <string>SRC09-PS-HC2:getIload</string>
        </property>
        <property name="variable3" stdset="0">
-        <string>SRC02-PS-HC1:getIload</string>
+        <string>SRC10-PS-HC1:getIload</string>
        </property>
        <property name="variable4" stdset="0">
-        <string>SRC02-PS-HC2:getIload</string>
+        <string>SRC10-PS-HC2:getIload</string>
        </property>
        <property name="traceLegend1">
-        <string>SRC01 HC1</string>
+        <string>SRC09 HC1</string>
        </property>
        <property name="traceLegend2">
-        <string>SRC01 HC2</string>
+        <string>SRC09 HC2</string>
        </property>
        <property name="traceLegend3">
-        <string>SRC02 HC1</string>
+        <string>SRC10 HC1</string>
        </property>
        <property name="traceLegend4">
-        <string>SRC02 HC2</string>
+        <string>SRC10 HC2</string>
        </property>
       </widget>
      </item>
@@ -86,34 +86,65 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QEPlot" name="qeplot_3">
+     <item row="0" column="0">
+      <widget class="QEPlot" name="qeplot">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="variable1" stdset="0">
-        <string>SRC05-PS-HC1:getIload</string>
+        <string>SRC01-PS-HC1:getIload</string>
        </property>
        <property name="variable2" stdset="0">
-        <string>SRC05-PS-HC2:getIload</string>
+        <string>SRC01-PS-HC2:getIload</string>
        </property>
        <property name="variable3" stdset="0">
-        <string>SRC06-PS-HC1:getIload</string>
+        <string>SRC02-PS-HC1:getIload</string>
        </property>
        <property name="variable4" stdset="0">
-        <string>SRC06-PS-HC2:getIload</string>
+        <string>SRC02-PS-HC2:getIload</string>
        </property>
        <property name="traceLegend1">
-        <string>SRC05 HC1</string>
+        <string>SRC01 HC1</string>
        </property>
        <property name="traceLegend2">
-        <string>SRC05 HC2</string>
+        <string>SRC01 HC2</string>
        </property>
        <property name="traceLegend3">
-        <string>SRC06 HC1</string>
+        <string>SRC02 HC1</string>
        </property>
        <property name="traceLegend4">
-        <string>SRC06 HC2</string>
+        <string>SRC02 HC2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QEPlot" name="qeplot_6">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="variable1" stdset="0">
+        <string>SRC13-PS-HC1:getIload</string>
+       </property>
+       <property name="variable2" stdset="0">
+        <string>SRC13-PS-HC2:getIload</string>
+       </property>
+       <property name="variable3" stdset="0">
+        <string>SRC14-PS-HC1:getIload</string>
+       </property>
+       <property name="variable4" stdset="0">
+        <string>SRC14-PS-HC2:getIload</string>
+       </property>
+       <property name="traceLegend1">
+        <string>SRC13 HC1</string>
+       </property>
+       <property name="traceLegend2">
+        <string>SRC13 HC2</string>
+       </property>
+       <property name="traceLegend3">
+        <string>SRC14 HC1</string>
+       </property>
+       <property name="traceLegend4">
+        <string>SRC14 HC2</string>
        </property>
       </widget>
      </item>
@@ -148,34 +179,34 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QEPlot" name="qeplot_8">
+     <item row="1" column="0">
+      <widget class="QEPlot" name="qeplot_3">
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
        <property name="variable1" stdset="0">
-        <string>SRC09-PS-HC1:getIload</string>
+        <string>SRC05-PS-HC1:getIload</string>
        </property>
        <property name="variable2" stdset="0">
-        <string>SRC09-PS-HC2:getIload</string>
+        <string>SRC05-PS-HC2:getIload</string>
        </property>
        <property name="variable3" stdset="0">
-        <string>SRC10-PS-HC1:getIload</string>
+        <string>SRC06-PS-HC1:getIload</string>
        </property>
        <property name="variable4" stdset="0">
-        <string>SRC10-PS-HC2:getIload</string>
+        <string>SRC06-PS-HC2:getIload</string>
        </property>
        <property name="traceLegend1">
-        <string>SRC09 HC1</string>
+        <string>SRC05 HC1</string>
        </property>
        <property name="traceLegend2">
-        <string>SRC09 HC2</string>
+        <string>SRC05 HC2</string>
        </property>
        <property name="traceLegend3">
-        <string>SRC10 HC1</string>
+        <string>SRC06 HC1</string>
        </property>
        <property name="traceLegend4">
-        <string>SRC10 HC2</string>
+        <string>SRC06 HC2</string>
        </property>
       </widget>
      </item>
@@ -207,37 +238,6 @@
        </property>
        <property name="traceLegend4">
         <string>SRC12 HC2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QEPlot" name="qeplot_6">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="variable1" stdset="0">
-        <string>SRC13-PS-HC1:getIload</string>
-       </property>
-       <property name="variable2" stdset="0">
-        <string>SRC13-PS-HC2:getIload</string>
-       </property>
-       <property name="variable3" stdset="0">
-        <string>SRC14-PS-HC1:getIload</string>
-       </property>
-       <property name="variable4" stdset="0">
-        <string>SRC14-PS-HC2:getIload</string>
-       </property>
-       <property name="traceLegend1">
-        <string>SRC13 HC1</string>
-       </property>
-       <property name="traceLegend2">
-        <string>SRC13 HC2</string>
-       </property>
-       <property name="traceLegend3">
-        <string>SRC14 HC1</string>
-       </property>
-       <property name="traceLegend4">
-        <string>SRC14 HC2</string>
        </property>
       </widget>
      </item>
