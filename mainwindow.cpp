@@ -31,6 +31,17 @@ MainWindow::MainWindow(QWidget *parent)
     this->regularization_Param = new QEpicsPV("SOFB:RegularizationParam");
     this->getFrequency         = new QEpicsPV("BO-RF-SGN1:getFrequency");
 
+    /* Current PVs for removing correction */
+    for (int cellIdx = 1; cellIdx <= 16; ++cellIdx)
+    {
+        for (int idx = 1; idx <= 2; ++idx)
+        {
+            this->correctors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-HC%d:getIload", cellIdx, idx)));
+            this->correctors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-VC%d:getIload", cellIdx, idx)));
+        }
+    }
+    /**/
+
     this->correction_process = new QProcess();
     this->logProcess = new QProcess();
     this->base_path = "/home/dev.control/orbit-correction/";
@@ -50,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(getFrequency, SIGNAL(valueInited(const QVariant &)), this, SLOT(frequencyPvInit(const QVariant &)));
     QObject::connect(getFrequency, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
     QObject::connect(loggingTimer, SIGNAL(timeout()), this, SLOT(logDataSSH()));
+    QObject::connect(this, SIGNAL(stackLengthChanged(int)), this, SLOT(onStackLengthChanged(int)));
 
     this->expert = NULL;
     this->historyLogs = NULL;
@@ -151,14 +163,27 @@ void MainWindow::on_btnStartCorrection_clicked()
     //    std::cout << param.toStdString() << " ";
     //}
 
+    if (!this->debug_mode->get().toBool())
+        saveCorrectorsAndRF();
+
     QStringList sshArgs;
     sshArgs << remoteHost << "sofb" << params;
-    correction_process->setProgram("ssh");
-    correction_process->setArguments(sshArgs);
 
-    if (!correction_process->startDetached()) {
+    if (!correction_process->startDetached("ssh", sshArgs)) {
         std::cout << "Error: Unable to start Correction\n";
     }
+}
+
+void MainWindow::saveCorrectorsAndRF()
+{
+    std::array<double, 65> correction;
+    for (int i = 0; i < 64; ++i)
+    {
+        correction[i] = this->correctors_currents[i]->get().toDouble();
+    }
+    correction[64] = this->getFrequency->get().toDouble();
+    correctionStack.push(correction);
+    emit stackLengthChanged(correctionStack.length());
 }
 
 void MainWindow::print_stdout()
@@ -179,10 +204,8 @@ void MainWindow::on_btnStopCorrection_clicked()
 
     QStringList sshArgs;
     sshArgs << remoteHost << "pkill" << processName;
-    pkillProcess.setProgram("ssh");
-    pkillProcess.setArguments(sshArgs);
 
-    if (!pkillProcess.startDetached()) {
+    if (!pkillProcess.startDetached("ssh", sshArgs)) {
         std::cout << "Error: Unable to stop Correction\n";
     }
     pkillProcess.waitForFinished();
@@ -216,6 +239,7 @@ void MainWindow::disableInputs()
     this->ui->maxReadFail->setEnabled(false);
     this->ui->chkBoxIncludeRf->setEnabled(false);
     this->ui->chkBoxApplyReg->setEnabled(false);
+    this->ui->btnRemoveCorrection->setEnabled(false);
 }
 
 void MainWindow::enableInputs()
@@ -233,6 +257,11 @@ void MainWindow::enableInputs()
         this->ui->numIterations->setEnabled(false);
     else
         this->ui->numIterations->setEnabled(true);
+
+    if (this->correctionStack.length())
+        this->ui->btnRemoveCorrection->setEnabled(true);
+    else
+        this->ui->btnRemoveCorrection->setEnabled(false);
 }
 
 void MainWindow::onCorrectionStatusInit(const QVariant &status)
@@ -337,4 +366,28 @@ void MainWindow::on_btnHistoryLogs_clicked()
 void MainWindow::on_btnPlots_clicked()
 {
     OPEN_UI(plots, Plots, this);
+}
+
+void MainWindow::on_btnRemoveCorrection_clicked()
+{
+    if (!correctionStack.isEmpty())
+    {
+        std::array<double, 65> correction = correctionStack.pop();
+        emit stackLengthChanged(correctionStack.length());
+        for (int i = 0; i < 64; ++i)
+        {
+            Client::writePV(this->correctors_currents[i]->pv(), correction[i]);
+        }
+        Client::writePV(this->getFrequency->pv(), correction[64]);
+    } else
+    {
+        std::cout << "Stack is empty!" <<std::endl;
+    }
+}
+
+void MainWindow::onStackLengthChanged(int stackLength)
+{
+    this->ui->btnRemoveCorrection->setText(QString::asprintf("Remove Correction (%d)", stackLength));
+    if (!stackLength)
+        this->ui->btnRemoveCorrection->setEnabled(false);
 }

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QProcess>
+#include <QList>
+#include <QStack>
 
 #include <qepicspv.h>
 #include "expert.h"
@@ -64,6 +66,15 @@ private slots:
 
     void on_btnPlots_clicked();
 
+    void on_btnRemoveCorrection_clicked();
+
+    void saveCorrectorsAndRF();
+
+    void onStackLengthChanged(int);
+
+signals:
+    void stackLengthChanged(int);
+
 private:
     Ui::MainWindow *ui;
 
@@ -92,6 +103,8 @@ private:
     QEpicsPV* regularization_Param;
     QEpicsPV* sampling_frequency;
     QEpicsPV* getFrequency;
+    QList<QEpicsPV*> correctors_currents;
+    QStack<std::array<double, 65>> correctionStack;
 
     /*Expert References*/
     QEpicsPV* rf_only;

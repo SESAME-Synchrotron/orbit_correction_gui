@@ -915,7 +915,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>430</y>
+      <y>458</y>
       <width>327</width>
       <height>71</height>
      </rect>
@@ -2570,7 +2570,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>502</y>
+      <y>530</y>
       <width>327</width>
       <height>71</height>
      </rect>
@@ -4361,7 +4361,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>320</y>
+      <y>348</y>
       <width>315</width>
       <height>112</height>
      </rect>
@@ -4558,6 +4558,25 @@ QGroupBox::title {
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="btnRemoveCorrection">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>318</y>
+      <width>314</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Remove Correction (0)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
    </widget>
   </widget>
  </widget>
