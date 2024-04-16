@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->apply_regularization = new QEpicsPV("SOFB:ApplyRegularization");
     this->rf_only              = new QEpicsPV("SOFB:OnlyRf");
     this->debug_mode           = new QEpicsPV("SOFB:NoSetPv");
+    this->normalize_inputs     = new QEpicsPV("SOFB:NormalizeInputs");
+    this->scale_outputs        = new QEpicsPV("SOFB:ScaleOutputs");
     this->avg_algo             = new QEpicsPV("SOFB:MovAvg:Algo");
     this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
@@ -156,6 +158,10 @@ void MainWindow::on_btnStartCorrection_clicked()
         params << "-rf_only";
     if (this->debug_mode->get().toBool())
         params << "-no_set";
+    if (this->normalize_inputs->get().toBool())
+        params << "-normalize_inputs";
+    if (this->scale_outputs->get().toBool())
+        params << "-scale_outputs";
 
     disableInputs();
     ui->btnStartCorrection->setEnabled(false);

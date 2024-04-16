@@ -111,6 +111,8 @@ private:
     /*Expert References*/
     QEpicsPV* rf_only;
     QEpicsPV* debug_mode;
+    QEpicsPV* normalize_inputs;
+    QEpicsPV* scale_outputs;
     /*Averaging Expert*/
     QEpicsPV* window_size;
     QEpicsPV* smoothing_factor;
