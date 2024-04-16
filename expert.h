@@ -22,6 +22,10 @@ private slots:
 
     void onDebugModeInit(const QVariant &);
 
+    void onNormalizeInputsInit(const QVariant &);
+
+    void onScaleOutputsInit(const QVariant &);
+
     void onCorrectionStatusInit(const QVariant &);
 
     void onCorrectionStatusChanged(const QVariant &);
@@ -35,6 +39,8 @@ private:
 
     QEpicsPV* rf_only;
     QEpicsPV* debug_mode;
+    QEpicsPV* normalizeInputs;
+    QEpicsPV* scaleOutputs;
     QEpicsPV* window_size;
     QEpicsPV* smoothing_factor;
     QEpicsPV* avg_algo;
