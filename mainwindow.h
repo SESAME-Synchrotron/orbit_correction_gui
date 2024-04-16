@@ -103,7 +103,9 @@ private:
     QEpicsPV* regularization_Param;
     QEpicsPV* sampling_frequency;
     QEpicsPV* getFrequency;
-    QList<QEpicsPV*> correctors_currents;
+    QEpicsPV* setFrequency;
+    QList<QEpicsPV*> getCorrectors_currents;
+    QList<QString> setCorrectors_currents;
     QStack<std::array<double, 65>> correctionStack;
 
     /*Expert References*/

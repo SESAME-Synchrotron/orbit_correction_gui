@@ -30,14 +30,18 @@ MainWindow::MainWindow(QWidget *parent)
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
     this->regularization_Param = new QEpicsPV("SOFB:RegularizationParam");
     this->getFrequency         = new QEpicsPV("BO-RF-SGN1:getFrequency");
+    this->setFrequency         = new QEpicsPV("BO-RF-SGN1:setFrequency");
 
     /* Current PVs for removing correction */
     for (int cellIdx = 1; cellIdx <= 16; ++cellIdx)
     {
         for (int idx = 1; idx <= 2; ++idx)
         {
-            this->correctors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-HC%d:getIload", cellIdx, idx)));
-            this->correctors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-VC%d:getIload", cellIdx, idx)));
+            this->getCorrectors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-HC%d:getIload", cellIdx, idx)));
+            this->getCorrectors_currents.push_back(new QEpicsPV(QString::asprintf("SRC%02d-PS-VC%d:getIload", cellIdx, idx)));
+
+            this->setCorrectors_currents.push_back(QString::asprintf("SRC%02d-PS-HC%d:setReference", cellIdx, idx));
+            this->setCorrectors_currents.push_back(QString::asprintf("SRC%02d-PS-VC%d:setReference", cellIdx, idx));
         }
     }
     /**/
@@ -179,7 +183,7 @@ void MainWindow::saveCorrectorsAndRF()
     std::array<double, 65> correction;
     for (int i = 0; i < 64; ++i)
     {
-        correction[i] = this->correctors_currents[i]->get().toDouble();
+        correction[i] = this->getCorrectors_currents[i]->get().toDouble();
     }
     correction[64] = this->getFrequency->get().toDouble();
     correctionStack.push(correction);
@@ -376,9 +380,9 @@ void MainWindow::on_btnRemoveCorrection_clicked()
         emit stackLengthChanged(correctionStack.length());
         for (int i = 0; i < 64; ++i)
         {
-            Client::writePV(this->correctors_currents[i]->pv(), correction[i]);
+            Client::writePV(this->setCorrectors_currents[i], correction[i]);
         }
-        Client::writePV(this->getFrequency->pv(), correction[64]);
+        Client::writePV(this->setFrequency->pv(), correction[64]);
     } else
     {
         std::cout << "Stack is empty!" <<std::endl;
