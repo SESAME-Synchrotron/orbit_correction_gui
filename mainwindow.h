@@ -113,6 +113,7 @@ private:
     QEpicsPV* debug_mode;
     QEpicsPV* normalize_inputs;
     QEpicsPV* scale_outputs;
+    QEpicsPV* estimation_algo;
     /*Averaging Expert*/
     QEpicsPV* window_size;
     QEpicsPV* smoothing_factor;

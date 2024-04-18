@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <qepicspv.h>
+#include "client.h"
 #include "macros.h"
 
 namespace Ui {
@@ -23,6 +24,8 @@ private slots:
     void onDebugModeInit(const QVariant &);
 
     void onNormalizeInputsInit(const QVariant &);
+
+    void onNormalizeInputsValueChanged(const QVariant &);
 
     void onScaleOutputsInit(const QVariant &);
 

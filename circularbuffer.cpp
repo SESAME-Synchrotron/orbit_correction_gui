@@ -28,6 +28,24 @@ void CircularBuffer::enqueue(double el)
     updateDataArr();
 }
 
+double CircularBuffer::dequeue()
+{
+  if (!this->numItems)
+  {
+    return 0;
+  }
+
+  double el = this->data[this->front];
+  this->data[this->front] = 0;
+  this->front = (this->front + 1) % this->size;
+  --this->numItems;
+
+  updateDataArr();
+
+  return el;
+}
+
+
 void CircularBuffer::printBuffer()
 {
   if (!this->numItems)
@@ -55,4 +73,9 @@ void CircularBuffer::updateDataArr()
     index = (this->front + count) % this->size;
     dataArr[count] = this->data[index];
   }
+}
+
+bool CircularBuffer::isEmpty()
+{
+    return this->numItems == 0;
 }

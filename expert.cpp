@@ -20,6 +20,7 @@ Expert::Expert(QWidget *parent) :
     QObject::connect(rf_only, SIGNAL(valueInited(const QVariant &)), this, SLOT(onRfOnlyInit(const QVariant &)));
     QObject::connect(debug_mode, SIGNAL(valueInited(const QVariant &)), this, SLOT(onDebugModeInit(const QVariant &)));
     QObject::connect(normalizeInputs, SIGNAL(valueInited(const QVariant &)), this, SLOT(onNormalizeInputsInit(const QVariant &)));
+    QObject::connect(normalizeInputs, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onNormalizeInputsValueChanged(const QVariant &)));
     QObject::connect(scaleOutputs, SIGNAL(valueInited(const QVariant &)), this, SLOT(onScaleOutputsInit(const QVariant &)));
     QObject::connect(correction_status, SIGNAL(valueInited(const QVariant &)), this, SLOT(onCorrectionStatusInit(const QVariant &)));
     QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
@@ -45,6 +46,20 @@ void Expert::onDebugModeInit(const QVariant &val)
 void Expert::onNormalizeInputsInit(const QVariant &val)
 {
     this->ui->chkBoxNormalizeInputs->setChecked(val.toBool());
+}
+
+void Expert::onNormalizeInputsValueChanged(const QVariant &val)
+{
+    if (val == 0)
+    {
+        Client::writePV("SOFB:ScaleOutputs", 0);
+        this->ui->chkBoxScaleOutputs->setChecked(0);
+        this->ui->chkBoxScaleOutputs->setEnabled(false);
+        this->ui->lblScaleOutputs->setStyleSheet("color: rgb(128, 128, 128)");
+    } else {
+        this->ui->chkBoxScaleOutputs->setEnabled(true);
+        this->ui->lblScaleOutputs->setStyleSheet("color: rgb(0, 0, 0)");
+    }
 }
 
 void Expert::onScaleOutputsInit(const QVariant &val)
@@ -85,7 +100,8 @@ void Expert::enableInputs()
     this->ui->chkBoxRfOnly->setEnabled(true);
     this->ui->chkBoxDebugMode->setEnabled(true);
     this->ui->chkBoxNormalizeInputs->setEnabled(true);
-    this->ui->chkBoxScaleOutputs->setEnabled(true);
+    if (this->normalizeInputs->get() == 1)
+        this->ui->chkBoxScaleOutputs->setEnabled(true);
 }
 
 void Expert::disableInputs()

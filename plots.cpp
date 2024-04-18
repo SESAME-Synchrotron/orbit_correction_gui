@@ -20,6 +20,15 @@ Plots::Plots(QWidget *parent) :
         }
     }
 
+    for (int i = 0; i < 48; ++i)
+    {
+        xBpmIndexArr[i] = i + 1.0;
+        yBpmIndexArr[i] = i + 1.0;
+    }
+
+    estimatedOrbit = new QEpicsPV("SOFB:Estimation:Orbit", this);
+    QObject::connect(estimatedOrbit, SIGNAL(valueChanged(const QVariant&)), this, SLOT(estimatedOrbitChanged()));
+
     currentXOrbitRms = new QEpicsPV("SR-DI:getXOrbitRMS", this);
     currentYOrbitRms = new QEpicsPV("SR-DI:getYOrbitRMS", this);
     QObject::connect(currentXOrbitRms, SIGNAL(valueChanged(const QVariant&)), this, SLOT(xRmsUpdated(const QVariant&)));
@@ -34,14 +43,23 @@ Plots::Plots(QWidget *parent) :
     this->ui->plotXRms->setAxisScale(QwtPlot::xBottom, 1, this->xOrbitRms.size, 4);
     this->ui->plotYRms->setAxisScale(QwtPlot::xBottom, 1, this->yOrbitRms.size, 4);
 
-    this->xCurve = new QwtPlotCurve("Horizontal Data");
-    this->yCurve = new QwtPlotCurve("Vertical Data");
+    this->xCurve = new QwtPlotCurve("Horizontal Oribt");
+    this->xEstimatedCurve = new QwtPlotCurve("Estimtaed Horizontal Orbit");
+    this->yCurve = new QwtPlotCurve("Vertical Oribt");
+    this->yEstimatedCurve = new QwtPlotCurve("Estimtaed Vertical Orbit");
     this->xRmsCurve= new QwtPlotCurve("Orbit X Rms");
     this->yRmsCurve= new QwtPlotCurve("Orbit Y Rms");
     this->xCurve->setPen(Qt::black, 1);
+    this->xEstimatedCurve->setPen(Qt::red, 1);
     this->yCurve->setPen(Qt::black, 1);
+    this->yEstimatedCurve->setPen(Qt::red, 1);
     this->xRmsCurve->setPen(Qt::black, 1);
     this->yRmsCurve->setPen(Qt::black, 1);
+
+    QwtLegend *xLegend = new QwtLegend();
+    this->ui->plotX->insertLegend(xLegend, QwtPlot::BottomLegend);
+    QwtLegend *yLegend = new QwtLegend();
+    this->ui->plotY->insertLegend(yLegend, QwtPlot::BottomLegend);
 
     QwtPlotGrid* gridX = new QwtPlotGrid;
     gridX->setAxes(QwtPlot::xBottom, QwtPlot::yLeft);
@@ -65,6 +83,7 @@ Plots::Plots(QWidget *parent) :
 
     this->verticalCorrectors = NULL;
     this->horizontalCorrectors = NULL;
+    this->orbit = NULL;
 
     CONNECT_CLOSE_BUTTON;
 
@@ -86,12 +105,16 @@ void Plots::on_btnHorizontalCorrectors_clicked()
     OPEN_UI(horizontalCorrectors, HorizontalCorrectors, this);
 }
 
+void Plots::on_btnOrbit_clicked()
+{
+    orbit = new Orbit(this);
+    showUI(orbit);
+}
+
 void Plots::horizontalDataChanged()
 {
-    for(int i = 0; i < 48; i++) {
-        xBpmIndexArr[i] = i + 1.0;
+    for(int i = 0; i < 48; i++)
         xData[i] = this->xDataPVs[i]->get().toDouble();
-    }
 
     this->xPlotData = new QwtPointArrayData(xBpmIndexArr, xData, 48);
     this->xCurve->setSamples(this->xPlotData);
@@ -102,14 +125,36 @@ void Plots::horizontalDataChanged()
 
 void Plots::verticalDataChanged()
 {
-    for(int i = 0; i < 48; i++) {
-        yBpmIndexArr[i] = i + 1.0;
+    for(int i = 0; i < 48; i++)
         yData[i] = this->yDataPVs[i]->get().toDouble();
-    }
 
     this->yPlotData = new QwtPointArrayData(yBpmIndexArr, yData, 48);
     this->yCurve->setSamples(this->yPlotData);
     this->yCurve->attach(this->ui->plotY);
+    this->ui->plotY->replot();
+    this->ui->plotY->update();
+}
+
+void Plots::estimatedOrbitChanged()
+{
+    QStringList estimatedOrbitValues = estimatedOrbit->get().toStringList();
+    if (estimatedOrbitValues.size())
+    {
+        for (int i = 0; i < 48; ++i)
+        {
+            xEstimatedData[i] = estimatedOrbitValues[i].toDouble();
+            yEstimatedData[i] = estimatedOrbitValues[i+48].toDouble();
+        }
+    }
+    this->xEstimatedPlotData = new QwtPointArrayData(xBpmIndexArr, xEstimatedData, 48);
+    this->xEstimatedCurve->setSamples(this->xEstimatedPlotData);
+    this->xEstimatedCurve->attach(this->ui->plotX);
+    this->ui->plotX->replot();
+    this->ui->plotX->update();
+
+    this->yEstimatedPlotData = new QwtPointArrayData(yBpmIndexArr, yEstimatedData, 48);
+    this->yEstimatedCurve->setSamples(this->yEstimatedPlotData);
+    this->yEstimatedCurve->attach(this->ui->plotY);
     this->ui->plotY->replot();
     this->ui->plotY->update();
 }

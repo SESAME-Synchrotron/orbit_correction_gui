@@ -13,6 +13,7 @@
 #include <qwt_plot_grid.h>
 #include "horizontalcorrectors.h"
 #include "verticalcorrectors.h"
+#include "orbit.h"
 #include "macros.h"
 #include "circularbuffer.h"
 
@@ -37,9 +38,13 @@ private slots:
 
     void verticalDataChanged();
 
+    void estimatedOrbitChanged();
+
     void xRmsUpdated(const QVariant&);
 
     void yRmsUpdated(const QVariant&);
+
+    void on_btnOrbit_clicked();
 
 private:
     Ui::Plots *ui;
@@ -47,17 +52,23 @@ private:
     double xBpmIndexArr[48];
     double yBpmIndexArr[48];
     double xData[48];
+    double xEstimatedData[48];
     double yData[48];
+    double yEstimatedData[48];
     CircularBuffer xOrbitRms;
     CircularBuffer yOrbitRms;
 
     QwtPointArrayData* xPlotData;
+    QwtPointArrayData* xEstimatedPlotData;
     QwtPointArrayData* yPlotData;
+    QwtPointArrayData* yEstimatedPlotData;
     QwtPointArrayData* xRmsPlotData;
     QwtPointArrayData* yRmsPlotData;
 
     QwtPlotCurve* xCurve;
+    QwtPlotCurve* xEstimatedCurve;
     QwtPlotCurve* yCurve;
+    QwtPlotCurve* yEstimatedCurve;
     QwtPlotCurve* xRmsCurve;
     QwtPlotCurve* yRmsCurve;
 
@@ -65,9 +76,11 @@ private:
     QList<QEpicsPV*> yDataPVs;
     QEpicsPV* currentXOrbitRms;
     QEpicsPV* currentYOrbitRms;
+    QEpicsPV* estimatedOrbit;
 
     HorizontalCorrectors* horizontalCorrectors;
     VerticalCorrectors* verticalCorrectors;
+    Orbit* orbit;
 };
 
 #endif // PLOTS_H

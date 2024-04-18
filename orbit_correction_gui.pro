@@ -18,6 +18,7 @@ SOURCES += \
     macros.cpp \
     main.cpp \
     mainwindow.cpp \
+    orbit.cpp \
     plots.cpp \
     verticalcorrectors.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     logs.h \
     macros.h \
     mainwindow.h \
+    orbit.h \
     plots.h \
     verticalcorrectors.h
 
@@ -37,6 +39,7 @@ FORMS += \
     horizontalcorrectors.ui \
     logs.ui \
     mainwindow.ui \
+    orbit.ui \
     plots.ui \
     verticalcorrectors.ui
 

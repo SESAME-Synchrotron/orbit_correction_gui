@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->debug_mode           = new QEpicsPV("SOFB:NoSetPv");
     this->normalize_inputs     = new QEpicsPV("SOFB:NormalizeInputs");
     this->scale_outputs        = new QEpicsPV("SOFB:ScaleOutputs");
+    this->estimation_algo      = new QEpicsPV("SOFB:Estimation:Algo");
     this->avg_algo             = new QEpicsPV("SOFB:MovAvg:Algo");
     this->window_size          = new QEpicsPV("SOFB:MovAvg:WindowSize");
     this->smoothing_factor     = new QEpicsPV("SOFB:MovAvg:SmoothingFactor");
@@ -134,6 +135,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     }
 
     QStringList energyLevels = this->energy->getEnum();
+    QStringList EstimationAlgos = this->estimation_algo->getEnum();
     QStringList movAvgAlgos = this->avg_algo->getEnum();
     QStringList params;
     params << "-sampling_freq" << sampling_frequency->get().toString();
@@ -146,6 +148,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-max_read_fail" << max_read_fail->get().toString();
     params << "-data_path" << data_path;
     params << "-logs_path" << logs_path;
+    params << "-estimation_algo" << EstimationAlgos[this->estimation_algo->get().toInt()];
     params << "-avg_algo" << movAvgAlgos[this->avg_algo->get().toInt()];
     params << "-window_size" << window_size->get().toString();
     params << "-avg_smooth" << smoothing_factor->get().toString();

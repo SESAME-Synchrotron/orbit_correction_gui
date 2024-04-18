@@ -13,8 +13,10 @@ public:
     double* data;
     double* dataArr;
     void enqueue(double el);
+    double dequeue();
     void printBuffer();
     void updateDataArr();
+    bool isEmpty();
 
 private:
     int numItems;
