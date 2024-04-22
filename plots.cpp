@@ -162,13 +162,14 @@ void Plots::estimatedOrbitChanged()
 void Plots::xRmsUpdated(const QVariant& val)
 {
     this->xOrbitRms.enqueue(val.toDouble());
+    this->ui->plotXRms->setAxisScale(QwtPlot::xBottom, 1, this->xOrbitRms.numItems, 4);
 
     double timeIndexArr[this->xOrbitRms.size];
     for(int i = 0; i < this->xOrbitRms.size; i++) {
         timeIndexArr[i] = i + 1.0;
     }
 
-    this->xRmsPlotData = new QwtPointArrayData(timeIndexArr, this->xOrbitRms.dataArr, this->xOrbitRms.size);
+    this->xRmsPlotData = new QwtPointArrayData(timeIndexArr, this->xOrbitRms.dataArr, this->xOrbitRms.numItems);
     this->xRmsCurve->setSamples(this->xRmsPlotData);
     this->xRmsCurve->attach(this->ui->plotXRms);
     this->ui->plotXRms->replot();
@@ -178,13 +179,14 @@ void Plots::xRmsUpdated(const QVariant& val)
 void Plots::yRmsUpdated(const QVariant& val)
 {
     this->yOrbitRms.enqueue(val.toDouble());
+    this->ui->plotYRms->setAxisScale(QwtPlot::xBottom, 1, this->yOrbitRms.numItems, 4);
 
     double timeIndexArr[this->yOrbitRms.size];
     for(int i = 0; i < this->yOrbitRms.size; i++) {
         timeIndexArr[i] = i + 1.0;
     }
 
-    this->yRmsPlotData = new QwtPointArrayData(timeIndexArr, this->yOrbitRms.dataArr, this->yOrbitRms.size);
+    this->yRmsPlotData = new QwtPointArrayData(timeIndexArr, this->yOrbitRms.dataArr, this->yOrbitRms.numItems);
     this->yRmsCurve->setSamples(this->yRmsPlotData);
     this->yRmsCurve->attach(this->ui->plotYRms);
     this->ui->plotYRms->replot();

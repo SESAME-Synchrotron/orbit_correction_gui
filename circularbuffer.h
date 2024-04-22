@@ -10,6 +10,7 @@ public:
     ~CircularBuffer();
 
     int size;
+    int numItems;
     double* data;
     double* dataArr;
     void enqueue(double el);
@@ -19,7 +20,6 @@ public:
     bool isEmpty();
 
 private:
-    int numItems;
     int front;
     int rear;
 };

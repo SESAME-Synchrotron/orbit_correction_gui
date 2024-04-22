@@ -14,68 +14,55 @@
    <string>Orbit Plot</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QwtPlot" name="plotOrbit">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>604</width>
-      <height>434</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="autoReplot">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblBpmNumber">
-    <property name="geometry">
-     <rect>
-      <x>24</x>
-      <y>20</y>
-      <width>90</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>BPM Number</string>
-    </property>
-   </widget>
-   <widget class="QNumericEdit" name="bpmNumber">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>20</y>
-      <width>80</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="leadingZeros">
-     <number>2</number>
-    </property>
-    <property name="precision">
-     <number>0</number>
-    </property>
-    <property name="minimum">
-     <double>1.000000000000000</double>
-    </property>
-    <property name="maximum">
-     <double>96.000000000000000</double>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="footer">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>500</y>
-      <width>606</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QGroupBox {
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,3">
+      <item>
+       <widget class="QLabel" name="lblBpmNumber">
+        <property name="text">
+         <string>BPM Number</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QNumericEdit" name="bpmNumber">
+        <property name="leadingZeros">
+         <number>2</number>
+        </property>
+        <property name="precision">
+         <number>0</number>
+        </property>
+        <property name="minimum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>96.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="filler">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QwtPlot" name="plotOrbit">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="autoReplot">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="footer">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
 	background-color: rgb(255, 255, 255);
     border: 1px solid black;
     border-radius: 5px;
@@ -86,33 +73,35 @@ QGroupBox::title {
     left: 10px;
     padding: 0 3px 0 3px;
 }</string>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>307</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnClose">
-       <property name="text">
-        <string>Close</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>307</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

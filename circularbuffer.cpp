@@ -14,6 +14,7 @@ CircularBuffer::CircularBuffer(int windowSize)
 CircularBuffer::~CircularBuffer()
 {
     delete[] data;
+    delete[] dataArr;
 }
 
 void CircularBuffer::enqueue(double el)
