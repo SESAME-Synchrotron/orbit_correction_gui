@@ -127,6 +127,10 @@ void MainWindow::on_chkBoxInfIterations_stateChanged(int state)
 
 void MainWindow::on_btnStartCorrection_clicked()
 {
+    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Confirmation", "Are you sure you want to start correction?", QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::No)
+      return;
+
     int correction_iterations = num_iterations->get().toInt();
     QString correction_iterations_lbl = QString::number(correction_iterations);
     if (this->inf_iterations)
@@ -214,6 +218,10 @@ void MainWindow::print_stdout()
 
 void MainWindow::on_btnStopCorrection_clicked()
 {
+    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Confirmation", "Are you sure you want to stop the correction?", QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::No)
+      return;
+
     QString processName = "sofb$";
     QProcess pkillProcess;
     //pkillProcess.start("pkill", QStringList() << processName);
