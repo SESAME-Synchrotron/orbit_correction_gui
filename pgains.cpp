@@ -18,6 +18,8 @@ PGains::PGains(QWidget *parent) :
 
     for (int index = 0; index < bpm_count; ++index)
         this->ui->ltGains->addWidget(new PIDGainWidget(index, "P", this));
+
+    CONNECT_CLOSE_BUTTON;
 }
 
 PGains::~PGains()

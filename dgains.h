@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include "widgets/pidgainwidget.h"
 #include "client.h"
+#include "macros.h"
 
 namespace Ui {
 class DGains;
