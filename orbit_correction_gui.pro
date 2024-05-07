@@ -12,36 +12,48 @@ TARGET = $$(HOME)/bin/orbit-qt
 SOURCES += \
     circularbuffer.cpp \
     client.cpp \
+    dgains.cpp \
     expert.cpp \
     horizontalcorrectors.cpp \
+    igains.cpp \
     logs.cpp \
     macros.cpp \
     main.cpp \
     mainwindow.cpp \
     orbit.cpp \
+    pgains.cpp \
     plots.cpp \
-    verticalcorrectors.cpp
+    verticalcorrectors.cpp \
+    widgets/pidgainwidget.cpp
 
 HEADERS += \
     circularbuffer.h \
     client.h \
+    dgains.h \
     expert.h \
     horizontalcorrectors.h \
+    igains.h \
     logs.h \
     macros.h \
     mainwindow.h \
     orbit.h \
+    pgains.h \
     plots.h \
-    verticalcorrectors.h
+    verticalcorrectors.h \
+    widgets/pidgainwidget.h
 
 FORMS += \
+    dgains.ui \
     expert.ui \
     horizontalcorrectors.ui \
+    igains.ui \
     logs.ui \
     mainwindow.ui \
     orbit.ui \
+    pgains.ui \
     plots.ui \
-    verticalcorrectors.ui
+    verticalcorrectors.ui \
+    widgets/pidgainwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

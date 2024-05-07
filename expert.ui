@@ -7,17 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>294</width>
-    <height>458</height>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Orbit Correction Expert</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_12" stretch="9,8,10,4">
-    <property name="spacing">
-     <number>6</number>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_12" stretch="13,14,9,12,2">
     <item>
      <widget class="QGroupBox" name="groupBox_4">
       <property name="styleSheet">
@@ -40,9 +37,9 @@ QGroupBox::title {
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>29</y>
+         <y>31</y>
          <width>260</width>
-         <height>83</height>
+         <height>104</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -76,7 +73,14 @@ QGroupBox::title {
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="lblAvgAlgo_3">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Controller</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblEstimationAlgo">
             <property name="text">
              <string>Estimation Algorithm</string>
             </property>
@@ -201,6 +205,28 @@ QGroupBox::title {
            </widget>
           </item>
           <item>
+           <widget class="QEComboBox" name="controlAlgo">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="variable" stdset="0">
+             <string>SOFB:Control:Algo</string>
+            </property>
+            <property name="writeOnChange">
+             <bool>true</bool>
+            </property>
+            <property name="displayAlarmStateOption" stdset="0">
+             <enum>QEComboBox::Always</enum>
+            </property>
+            <property name="useDbEnumerations">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QEComboBox" name="estimationAlgo">
             <property name="maximumSize">
              <size>
@@ -223,6 +249,123 @@ QGroupBox::title {
            </widget>
           </item>
          </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}</string>
+      </property>
+      <property name="title">
+       <string>PID Controller</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>12</x>
+         <y>27</y>
+         <width>250</width>
+         <height>126</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="btnPGains">
+          <property name="text">
+           <string>P Gains</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="btnIGains">
+          <property name="text">
+           <string>I Gains</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="btnDGains">
+          <property name="text">
+           <string>D Gains</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="lblPIDIntegralUntiWindup">
+          <property name="text">
+           <string>Integral Unti Windup</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QECheckBox" name="chkBoxIntegralUntiWindup">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SOFB:PID:IntegralUntiWindup</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lblDCutoffFrequency">
+          <property name="text">
+           <string>D Cutoff Frequency</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QENumericEdit" name="DCutoffFrequency">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="variable" stdset="0">
+           <string>SOFB:PID:Derivative:LPF:CutoffFreq</string>
+          </property>
+          <property name="autoScale">
+           <bool>false</bool>
+          </property>
+          <property name="leadingZeros">
+           <number>2</number>
+          </property>
+          <property name="precision">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="writeOnEnter">
+           <bool>false</bool>
+          </property>
+          <property name="writeOnFinish">
+           <bool>false</bool>
+          </property>
+          <property name="writeOnChange">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>

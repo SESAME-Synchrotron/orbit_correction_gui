@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <qepicspv.h>
+#include "pgains.h"
+#include "igains.h"
+#include "dgains.h"
 #include "client.h"
 #include "macros.h"
 
@@ -19,6 +22,8 @@ public:
     ~Expert();
 
 private slots:
+    void onIntegralUntiWindupInit(const QVariant &);
+
     void onRfOnlyInit(const QVariant &);
 
     void onDebugModeInit(const QVariant &);
@@ -33,13 +38,23 @@ private slots:
 
     void onCorrectionStatusChanged(const QVariant &);
 
+    void onControlAlgorithmChanged(const QVariant &);
+
     void enableInputs();
 
     void disableInputs();
 
+    void on_btnPGains_clicked();
+
+    void on_btnIGains_clicked();
+
+    void on_btnDGains_clicked();
+
 private:
     Ui::Expert *ui;
 
+    QEpicsPV* control_algorithm;
+    QEpicsPV* integral_untiwindup;
     QEpicsPV* rf_only;
     QEpicsPV* debug_mode;
     QEpicsPV* normalizeInputs;
@@ -48,6 +63,10 @@ private:
     QEpicsPV* smoothing_factor;
     QEpicsPV* avg_algo;
     QEpicsPV* correction_status;
+
+    PGains* pGains;
+    IGains* iGains;
+    DGains* dGains;
 };
 
 #endif // EXPERT_H
