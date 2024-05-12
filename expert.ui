@@ -367,6 +367,13 @@ QGroupBox::title {
           </property>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="btnPidTerms">
+          <property name="text">
+           <string>PID Terms</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>

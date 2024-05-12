@@ -6,6 +6,7 @@
 #include "pgains.h"
 #include "igains.h"
 #include "dgains.h"
+#include "pidterms.h"
 #include "client.h"
 #include "macros.h"
 
@@ -50,6 +51,8 @@ private slots:
 
     void on_btnDGains_clicked();
 
+    void on_btnPidTerms_clicked();
+
 private:
     Ui::Expert *ui;
 
@@ -64,9 +67,10 @@ private:
     QEpicsPV* avg_algo;
     QEpicsPV* correction_status;
 
-    PGains* pGains;
-    IGains* iGains;
-    DGains* dGains;
+    PGains*   pGains;
+    IGains*   iGains;
+    DGains*   dGains;
+    PIDTerms* pidTerms;
 };
 
 #endif // EXPERT_H

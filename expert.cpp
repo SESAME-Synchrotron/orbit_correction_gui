@@ -29,9 +29,10 @@ Expert::Expert(QWidget *parent) :
     QObject::connect(correction_status, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onCorrectionStatusChanged(const QVariant &)));
     QObject::connect(control_algorithm, SIGNAL(valueChanged(const QVariant &)), this, SLOT(onControlAlgorithmChanged(const QVariant &)));
 
-    this->pGains = NULL;
-    this->iGains = NULL;
-    this->dGains = NULL;
+    this->pGains   = NULL;
+    this->iGains   = NULL;
+    this->dGains   = NULL;
+    this->pidTerms = NULL;
 
     CONNECT_CLOSE_BUTTON;
 }
@@ -117,6 +118,7 @@ void Expert::onControlAlgorithmChanged(const QVariant & algorithm)
         this->ui->btnPGains->setEnabled(false);
         this->ui->btnIGains->setEnabled(false);
         this->ui->btnDGains->setEnabled(false);
+        this->ui->btnPidTerms->setEnabled(false);
         this->ui->chkBoxIntegralUntiWindup->setEnabled(false);
         this->ui->DCutoffFrequency->setEnabled(false);
     } else if (algorithm == P)
@@ -124,6 +126,7 @@ void Expert::onControlAlgorithmChanged(const QVariant & algorithm)
         this->ui->btnPGains->setEnabled(true);
         this->ui->btnIGains->setEnabled(false);
         this->ui->btnDGains->setEnabled(false);
+        this->ui->btnPidTerms->setEnabled(true);
         this->ui->chkBoxIntegralUntiWindup->setEnabled(false);
         this->ui->DCutoffFrequency->setEnabled(false);
     } else if (algorithm == PI)
@@ -131,6 +134,7 @@ void Expert::onControlAlgorithmChanged(const QVariant & algorithm)
         this->ui->btnPGains->setEnabled(true);
         this->ui->btnIGains->setEnabled(true);
         this->ui->btnDGains->setEnabled(false);
+        this->ui->btnPidTerms->setEnabled(true);
         this->ui->chkBoxIntegralUntiWindup->setEnabled(true);
         this->ui->DCutoffFrequency->setEnabled(false);
     } else if (algorithm == PID)
@@ -138,6 +142,7 @@ void Expert::onControlAlgorithmChanged(const QVariant & algorithm)
         this->ui->btnPGains->setEnabled(true);
         this->ui->btnIGains->setEnabled(true);
         this->ui->btnDGains->setEnabled(true);
+        this->ui->btnPidTerms->setEnabled(true);
         this->ui->chkBoxIntegralUntiWindup->setEnabled(true);
         this->ui->DCutoffFrequency->setEnabled(true);
     }
@@ -188,4 +193,9 @@ void Expert::on_btnIGains_clicked()
 void Expert::on_btnDGains_clicked()
 {
     OPEN_UI(dGains, DGains, this);
+}
+
+void Expert::on_btnPidTerms_clicked()
+{
+    OPEN_UI(pidTerms, PIDTerms, this);
 }

@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->logProcess = new QProcess();
     this->base_path = "/home/dev.control/orbit-correction/";
     this->data_path = this->base_path + "data";
+    this->pm_path = this->base_path + "postmortem";
     this->logs_path = this->base_path + "logs";
     this->logFile = new QFile(this->logs_path + "/last_run.log");
     this->loggingTimer = new QTimer(this);
@@ -154,6 +155,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-max_read_fail" << max_read_fail->get().toString();
     params << "-data_path" << data_path;
     params << "-logs_path" << logs_path;
+    params << "-pm_path" << pm_path;
     params << "-control_algo" << ControlAlgos[this->control_algo->get().toInt()];
     params << "-estimation_algo" << EstimationAlgos[this->estimation_algo->get().toInt()];
     params << "-avg_algo" << movAvgAlgos[this->avg_algo->get().toInt()];

@@ -22,6 +22,7 @@ SOURCES += \
     mainwindow.cpp \
     orbit.cpp \
     pgains.cpp \
+    pidterms.cpp \
     plots.cpp \
     verticalcorrectors.cpp \
     widgets/pidgainwidget.cpp
@@ -38,6 +39,7 @@ HEADERS += \
     mainwindow.h \
     orbit.h \
     pgains.h \
+    pidterms.h \
     plots.h \
     verticalcorrectors.h \
     widgets/pidgainwidget.h
@@ -51,6 +53,7 @@ FORMS += \
     mainwindow.ui \
     orbit.ui \
     pgains.ui \
+    pidterms.ui \
     plots.ui \
     verticalcorrectors.ui \
     widgets/pidgainwidget.ui

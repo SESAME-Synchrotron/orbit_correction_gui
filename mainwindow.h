@@ -87,6 +87,7 @@ private:
     QString base_path;
     QString data_path;
     QString logs_path;
+    QString pm_path;
     QFile* logFile;
     QTimer* loggingTimer;
 

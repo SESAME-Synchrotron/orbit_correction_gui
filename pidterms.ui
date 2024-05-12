@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PIDTerms</class>
+ <widget class="QMainWindow" name="PIDTerms">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>948</width>
+    <height>352</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>15</y>
+      <width>450</width>
+      <height>320</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QEPlotter" name="pltdRfVsSamplesOverTime">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>100.000000000000000</double>
+       </property>
+       <property name="yMaximum">
+        <double>0.001000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:PID:P:Term</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaRF">
+       <property name="text">
+        <string>P Term vs BPM Number</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>485</x>
+      <y>20</y>
+      <width>450</width>
+      <height>316</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QEPlotter" name="pltdRfVsSamplesOverTime_2">
+       <property name="enableEditPv">
+        <bool>false</bool>
+       </property>
+       <property name="enableContextMenu" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="toolBarIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="pvItemsIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="statusIsVisible" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="axisEnableX">
+        <bool>true</bool>
+       </property>
+       <property name="xMaximum">
+        <double>100.000000000000000</double>
+       </property>
+       <property name="yMaximum">
+        <double>0.001000000000000</double>
+       </property>
+       <property name="DataVariableA" stdset="0">
+        <string>SOFB:PID:I:Term</string>
+       </property>
+       <property name="DataVariableB" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameX" stdset="0">
+        <string/>
+       </property>
+       <property name="AliasNameA" stdset="0">
+        <string/>
+       </property>
+       <property name="aliasNames" stdset="0">
+        <stringlist>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+         <string></string>
+        </stringlist>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblDeltaRF_2">
+       <property name="text">
+        <string>I Term vs BPM Number</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QEPlotter</class>
+   <extends>QEFrame</extends>
+   <header>QEPlotter.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QEFrame</class>
+   <extends>QFrame</extends>
+   <header>QEFrame.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
