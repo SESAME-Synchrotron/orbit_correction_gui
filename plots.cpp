@@ -84,6 +84,7 @@ Plots::Plots(QWidget *parent) :
     this->verticalCorrectors = NULL;
     this->horizontalCorrectors = NULL;
     this->orbit = NULL;
+    this->postmortem = NULL;
 
     CONNECT_CLOSE_BUTTON;
 
@@ -191,4 +192,9 @@ void Plots::yRmsUpdated(const QVariant& val)
     this->yRmsCurve->attach(this->ui->plotYRms);
     this->ui->plotYRms->replot();
     this->ui->plotYRms->update();
+}
+
+void Plots::on_btnPostmortem_clicked()
+{
+    OPEN_UI(postmortem, Postmortem, this);
 }

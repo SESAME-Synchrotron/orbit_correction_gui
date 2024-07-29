@@ -16,6 +16,7 @@
 #include "orbit.h"
 #include "macros.h"
 #include "circularbuffer.h"
+#include "postmortem.h"
 
 namespace Ui {
 class Plots;
@@ -45,6 +46,8 @@ private slots:
     void yRmsUpdated(const QVariant&);
 
     void on_btnOrbit_clicked();
+
+    void on_btnPostmortem_clicked();
 
 private:
     Ui::Plots *ui;
@@ -81,6 +84,7 @@ private:
     HorizontalCorrectors* horizontalCorrectors;
     VerticalCorrectors* verticalCorrectors;
     Orbit* orbit;
+    Postmortem* postmortem;
 };
 
 #endif // PLOTS_H

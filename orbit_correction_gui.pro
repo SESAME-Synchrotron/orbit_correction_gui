@@ -1,6 +1,6 @@
 QT       += core gui xml uitools
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets datavisualization
 
 CONFIG += c++11
 TARGET = $$(HOME)/bin/orbit-qt
@@ -24,6 +24,7 @@ SOURCES += \
     pgains.cpp \
     pidterms.cpp \
     plots.cpp \
+    postmortem.cpp \
     verticalcorrectors.cpp \
     widgets/pidgainwidget.cpp
 
@@ -41,6 +42,7 @@ HEADERS += \
     pgains.h \
     pidterms.h \
     plots.h \
+    postmortem.h \
     verticalcorrectors.h \
     widgets/pidgainwidget.h
 
@@ -55,6 +57,7 @@ FORMS += \
     pgains.ui \
     pidterms.ui \
     plots.ui \
+    postmortem.ui \
     verticalcorrectors.ui \
     widgets/pidgainwidget.ui
 

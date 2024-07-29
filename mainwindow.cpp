@@ -54,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->logProcess = new QProcess();
     this->base_path = "/home/dev.control/orbit-correction/";
     this->data_path = this->base_path + "data";
-    this->pm_path = this->base_path + "postmortem";
+    this->pm_path = "/mnt/machine-nfs01/groups/control/orbit_correction/postmortem";
     this->logs_path = this->base_path + "logs";
     this->logFile = new QFile(this->logs_path + "/last_run.log");
     this->loggingTimer = new QTimer(this);
