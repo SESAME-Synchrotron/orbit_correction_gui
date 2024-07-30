@@ -101,7 +101,7 @@ void Postmortem::setupRfPlot()
 
 void Postmortem::showFileDialog()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Open File", "/home", "All Files (*);;Text Files (*.txt)", NULL, QFileDialog::DontUseNativeDialog);
+    QString fileName = QFileDialog::getOpenFileName(this, "Open File", "/mnt/machine-nfs01/machine/PostMortem/orbit_correction", "All Files (*);;Text Files (*.txt)", NULL, QFileDialog::DontUseNativeDialog);
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
