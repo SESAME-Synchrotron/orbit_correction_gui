@@ -109,6 +109,7 @@ void Postmortem::showFileDialog()
             QMessageBox::warning(NULL, "Error", "Could not read the file");
         handlePlotting(&file);
         this->ui->btnDialog->setText("Change File");
+        this->ui->lblSelectedFile->setText("Selected File: " + fileName);
     }
 }
 
