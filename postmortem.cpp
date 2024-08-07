@@ -70,7 +70,7 @@ void Postmortem::setupCorrectorsPlots(QString type)
     axisX->setRange(1, NUM_CORRECTORS/2);
     axisX->setSegmentCount(8);
 
-    axisY->setTitle("Delta Current (A)");
+    axisY->setTitle("Current (A)");
     axisY->setTitleVisible(true);
     axisY->setLabelFormat("%.7f");
 
