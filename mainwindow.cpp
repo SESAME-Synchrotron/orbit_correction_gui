@@ -263,6 +263,7 @@ void MainWindow::disableInputs()
     this->ui->maxFreqChange->setEnabled(false);
     this->ui->maxCurrChange->setEnabled(false);
     this->ui->maxReadFail->setEnabled(false);
+    this->ui->samplingFrequency->setEnabled(false);
     this->ui->chkBoxIncludeRf->setEnabled(false);
     this->ui->chkBoxApplyReg->setEnabled(false);
     this->ui->btnRemoveCorrection->setEnabled(false);
@@ -276,6 +277,7 @@ void MainWindow::enableInputs()
     this->ui->maxFreqChange->setEnabled(true);
     this->ui->maxCurrChange->setEnabled(true);
     this->ui->maxReadFail->setEnabled(true);
+    this->ui->samplingFrequency->setEnabled(true);
     this->ui->chkBoxIncludeRf->setEnabled(true);
     this->ui->chkBoxApplyReg->setEnabled(true);
 

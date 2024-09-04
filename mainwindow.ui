@@ -97,7 +97,7 @@ padding: 5px;</string>
       <x>151</x>
       <y>11</y>
       <width>110</width>
-      <height>122</height>
+      <height>142</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -302,6 +302,43 @@ padding: 5px;</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QENumericEdit" name="samplingFrequency">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="variable" stdset="0">
+        <string>SOFB:SamplingFrequency</string>
+       </property>
+       <property name="autoScale">
+        <bool>false</bool>
+       </property>
+       <property name="leadingZeros">
+        <number>2</number>
+       </property>
+       <property name="precision">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>10.000000000000000</double>
+       </property>
+       <property name="writeOnEnter">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnFinish">
+        <bool>false</bool>
+       </property>
+       <property name="writeOnChange">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -309,8 +346,8 @@ padding: 5px;</string>
      <rect>
       <x>11</x>
       <y>11</y>
-      <width>141</width>
-      <height>122</height>
+      <width>140</width>
+      <height>142</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -359,6 +396,13 @@ padding: 5px;</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="lblSamplingFrequency">
+       <property name="text">
+        <string>Sampling Frequency</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -367,7 +411,7 @@ padding: 5px;</string>
       <x>262</x>
       <y>11</y>
       <width>45</width>
-      <height>126</height>
+      <height>142</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -425,13 +469,20 @@ padding: 5px;</string>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="lblFreqUnit_2">
+       <property name="text">
+        <string>Hz</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>151</y>
+      <y>165</y>
       <width>290</width>
       <height>22</height>
      </rect>
@@ -460,7 +511,7 @@ padding: 5px;</string>
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>171</y>
+      <y>185</y>
       <width>290</width>
       <height>27</height>
      </rect>
@@ -4526,7 +4577,7 @@ QGroupBox::title {
     <property name="geometry">
      <rect>
       <x>12</x>
-      <y>198</y>
+      <y>212</y>
       <width>207</width>
       <height>28</height>
      </rect>

@@ -14,7 +14,7 @@
    <string>Orbit Correction Expert</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_12" stretch="13,14,9,12,2">
+   <layout class="QVBoxLayout" name="verticalLayout_12" stretch="11,14,9,12,2">
     <item>
      <widget class="QGroupBox" name="groupBox_4">
       <property name="styleSheet">
@@ -39,7 +39,7 @@ QGroupBox::title {
          <x>10</x>
          <y>31</y>
          <width>260</width>
-         <height>104</height>
+         <height>83</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -51,13 +51,6 @@ QGroupBox::title {
           <property name="spacing">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QLabel" name="lblSamplingFrequency">
-            <property name="text">
-             <string>Sampling Frequency (Hz)</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QLabel" name="lblCorrectionPercentage">
             <property name="text">
@@ -93,43 +86,6 @@ QGroupBox::title {
           <property name="spacing">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QENumericEdit" name="samplingFrequency">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="variable" stdset="0">
-             <string>SOFB:SamplingFrequency</string>
-            </property>
-            <property name="autoScale">
-             <bool>false</bool>
-            </property>
-            <property name="leadingZeros">
-             <number>2</number>
-            </property>
-            <property name="precision">
-             <number>2</number>
-            </property>
-            <property name="minimum">
-             <double>0.100000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>10.000000000000000</double>
-            </property>
-            <property name="writeOnEnter">
-             <bool>false</bool>
-            </property>
-            <property name="writeOnFinish">
-             <bool>false</bool>
-            </property>
-            <property name="writeOnChange">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QENumericEdit" name="correctionPercentage">
             <property name="maximumSize">
