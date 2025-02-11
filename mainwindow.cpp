@@ -8,9 +8,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , thresholdFreq(100.0/1000000.0)
     , remoteHost("dev.control@10.2.0.23")
+    , bumpFile({{"No Bump", "golden_2500_wo_bump.txt"},
+                {"Bump 0.6", "golden_2500_0p6_bump.txt"},
+                {"Bump 1.2", "golden_2500_1p2_bump.txt"}})
 {
     ui->setupUi(this);
     this->ui->numIterations->setEnabled(false);
+    this->ui->bump->addItem("No Bump", QVariant("No Bump"));
+    this->ui->bump->addItem("Bump 0.6", QVariant("Bump 0.6"));
+    this->ui->bump->addItem("Bump 1.2", QVariant("Bump 1.2"));
 
     this->sampling_frequency   = new QEpicsPV("SOFB:SamplingFrequency");
     this->energy               = new QEpicsPV("SOFB:EnergyLevel");
@@ -69,6 +75,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(rf_only, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
     QObject::connect(getFrequency, SIGNAL(valueInited(const QVariant &)), this, SLOT(frequencyPvInit(const QVariant &)));
     QObject::connect(getFrequency, SIGNAL(valueChanged(const QVariant &)), this, SLOT(checkRfOnlyRun()));
+    QObject::connect(energy, SIGNAL(valueInited(const QVariant &)), this, SLOT(bumpInputEnableDisable(const QVariant &)));
+    QObject::connect(energy, SIGNAL(valueChanged(const QVariant &)), this, SLOT(bumpInputEnableDisable(const QVariant &)));
     QObject::connect(loggingTimer, SIGNAL(timeout()), this, SLOT(logDataSSH()));
     QObject::connect(this, SIGNAL(stackLengthChanged(int)), this, SLOT(onStackLengthChanged(int)));
 
@@ -126,6 +134,22 @@ void MainWindow::on_chkBoxInfIterations_stateChanged(int state)
     }
 }
 
+void MainWindow::bumpInputEnableDisable(const QVariant &energyIndex)
+{
+    QStringList energyLevels = this->energy->getEnum();
+
+    if (energyLevels[energyIndex.toUInt()] == "800")
+    {
+        this->ui->bump->setEnabled(false);
+        this->golden_path = this->data_path + "/golden_800.txt";
+    } else if (energyLevels[energyIndex.toUInt()] == "2500")
+    {
+        this->ui->bump->setEnabled(true);
+        QString type = this->ui->bump->currentData().toString();
+        this->golden_path = this->data_path + "/" + this->bumpFile.at(type);
+    }
+}
+
 void MainWindow::on_btnStartCorrection_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Confirmation", "Are you sure you want to start correction?", QMessageBox::Yes|QMessageBox::No);
@@ -155,6 +179,7 @@ void MainWindow::on_btnStartCorrection_clicked()
     params << "-max_read_fail" << max_read_fail->get().toString();
     params << "-data_path" << data_path;
     params << "-logs_path" << logs_path;
+    params << "-golden_path" << golden_path;
     params << "-pm_path" << pm_path;
     params << "-control_algo" << ControlAlgos[this->control_algo->get().toInt()];
     params << "-estimation_algo" << EstimationAlgos[this->estimation_algo->get().toInt()];
@@ -257,6 +282,7 @@ void MainWindow::on_correctionEnd(int status)
 void MainWindow::disableInputs()
 {
     this->ui->energy->setEnabled(false);
+    this->ui->bump->setEnabled(false);
     this->ui->chkBoxInfIterations->setEnabled(false);
     this->ui->numIterations->setEnabled(false);
     this->ui->numSingularValues->setEnabled(false);
@@ -290,6 +316,8 @@ void MainWindow::enableInputs()
         this->ui->btnRemoveCorrection->setEnabled(true);
     else
         this->ui->btnRemoveCorrection->setEnabled(false);
+
+    bumpInputEnableDisable(this->energy->get());
 }
 
 void MainWindow::onCorrectionStatusInit(const QVariant &status)
@@ -418,4 +446,9 @@ void MainWindow::onStackLengthChanged(int stackLength)
     this->ui->btnRemoveCorrection->setText(QString::asprintf("Remove Correction (%d)", stackLength));
     if (!stackLength)
         this->ui->btnRemoveCorrection->setEnabled(false);
+}
+
+void MainWindow::on_bump_activated(const QString &type)
+{
+    this->golden_path = this->data_path + "/" + this->bumpFile.at(type);
 }

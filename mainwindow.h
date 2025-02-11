@@ -72,6 +72,10 @@ private slots:
 
     void onStackLengthChanged(int);
 
+    void bumpInputEnableDisable(const QVariant &);
+
+    void on_bump_activated(const QString &);
+
 signals:
     void stackLengthChanged(int);
 
@@ -80,6 +84,7 @@ private:
 
     const double thresholdFreq;
     const QString remoteHost;
+    const std::map<QString, QString> bumpFile;
 
     bool inf_iterations;
     double currentFreq, prevFreq;
@@ -87,6 +92,7 @@ private:
     QString base_path;
     QString data_path;
     QString logs_path;
+    QString golden_path;
     QString pm_path;
     QFile* logFile;
     QTimer* loggingTimer;
