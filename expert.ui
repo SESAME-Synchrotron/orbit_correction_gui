@@ -175,7 +175,7 @@ QGroupBox::title {
              <bool>true</bool>
             </property>
             <property name="displayAlarmStateOption" stdset="0">
-             <enum>QEComboBox::Always</enum>
+             <enum>QE::Always</enum>
             </property>
             <property name="useDbEnumerations">
              <bool>true</bool>
@@ -197,7 +197,7 @@ QGroupBox::title {
              <bool>true</bool>
             </property>
             <property name="displayAlarmStateOption" stdset="0">
-             <enum>QEComboBox::Always</enum>
+             <enum>QE::Always</enum>
             </property>
             <property name="useDbEnumerations">
              <bool>true</bool>
@@ -416,7 +416,7 @@ QGroupBox::title {
            <bool>true</bool>
           </property>
           <property name="displayAlarmStateOption" stdset="0">
-           <enum>QEComboBox::Always</enum>
+           <enum>QE::Always</enum>
           </property>
           <property name="useDbEnumerations">
            <bool>true</bool>
